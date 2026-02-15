@@ -1,5 +1,28 @@
 [gd_scene format=3 uid="uid://c6eoypc6gh6vv"]
 
+[ext_resource type="PackedScene" uid="uid://c6hdoerwfiamt" path="res://player/player.tscn" id="1_ifuk2"]
+[ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="2_24j26"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tbl2c"]
+
 [node name="Node2D" type="Node2D" unique_id=990565084]
 
-[node name="Node" type="Node" parent="." unique_id=225587705]
+[node name="Floor" type="StaticBody2D" parent="." unique_id=70015958]
+position = Vector2(669, 841)
+
+[node name="FloorCollider" type="CollisionShape2D" parent="Floor" unique_id=1593172348]
+shape = SubResource("WorldBoundaryShape2D_tbl2c")
+
+[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=394717971]
+offset_left = -139.0
+offset_top = 1.0
+offset_right = 135.0
+offset_bottom = 41.0
+color = Color(0.26352024, 0.12723675, 1.2032688e-08, 1)
+
+[node name="Player" parent="." unique_id=58500348 instance=ExtResource("1_ifuk2")]
+position = Vector2(671, 636)
+
+[node name="Camera" type="Camera2D" parent="Player" unique_id=1442234323]
+zoom = Vector2(4, 4)
+script = ExtResource("2_24j26")
