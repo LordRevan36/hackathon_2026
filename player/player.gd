@@ -5,8 +5,8 @@ class_name Player
 @onready var player_sprite = $PlayerSprite
 @onready var player_hitbox = $PlayerHitbox
 
-var JUMP_CONSTANT = 300
-var WALK_CONSANT = 100
+var JUMP_CONSTANT = 650
+var RUN_CONSTANT = 250
 
 enum State {IDLE, JUMP, LAND, WALK, RUN}
 
@@ -22,7 +22,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not is_on_floor():
-		velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER
+		if velocity.y < 0:
+			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER * 1.3
+		else:
+			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER
 	
 	
 	#direction = Input.get_axis("left", "right")
@@ -30,7 +33,7 @@ func _process(delta: float) -> void:
 	
 	#each thing inside these if and elifs should be their own functions and better written but I was rushed
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		#jump animation is getting cut off somehow, gotta figure out why
+		#jump animation is not ideal - it needs separated into jumping up and the actual landing bit or smth
 		velocity += Vector2(0, -JUMP_CONSTANT)
 		state = State.JUMP
 		_update_animations()
@@ -39,12 +42,16 @@ func _process(delta: float) -> void:
 		global_player.landed.emit()
 		state = State.IDLE
 		_update_animations()
-	elif Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+	elif (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
 		direction = Input.get_axis("left", "right")
-		state = State.WALK
-		#velocity.x = move_toward(velocity.x, 0, direction * WALK_CONSANT)
-		velocity.x = direction * WALK_CONSANT
-		_update_animations()
+		if is_on_floor():
+			state = State.RUN
+			_update_animations()
+		else:
+			player_sprite.flip_h = direction < 0
+		#velocity.x = move_toward(velocity.x, 0, direction * RUN_CONSTANT)
+		velocity.x = direction * RUN_CONSTANT
+		
 	elif not Input.is_anything_pressed() and state != State.JUMP:
 		state = State.IDLE
 		_update_animations()
@@ -63,5 +70,5 @@ func _update_animations() -> void:
 			player_sprite.play("idle")
 		State.JUMP:
 			player_sprite.play("jump")
-		State.WALK:
-			player_sprite.play("walk")
+		State.RUN:
+			player_sprite.play("run")
