@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER * 1.3
 		else:
 			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER
-	if 
+	#if 
 	
 	#direction = Input.get_axis("left", "right")
 	#-1 left +1 right
