@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://cmnlwmm01gkjr" path="res://assets/placeholder_sprites/1 Pink_Monster/Pink_Monster_Run_6.png" id="6_hg6s5"]
 [ext_resource type="Texture2D" uid="uid://b82ct45p1n0dj" path="res://assets/placeholder_sprites/1 Pink_Monster/Pink_Monster_Walk_6.png" id="7_8t03j"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
+radius = 24.0
+height = 90.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
 atlas = ExtResource("2_g1dw6")
 region = Rect2(0, 0, 32, 32)
@@ -322,19 +326,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oul6g"]
-radius = 24.0
-height = 90.0
-
 [node name="Player" type="CharacterBody2D" unique_id=58500348]
 script = ExtResource("1_oul6g")
+
+[node name="PlayerHitbox" type="CollisionShape2D" parent="." unique_id=1999700949]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_oul6g")
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1032938156]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
 animation = &"jump"
 autoplay = "idle"
-
-[node name="PlayerHitbox" type="CollisionShape2D" parent="." unique_id=1999700949]
-position = Vector2(0, 3)
-shape = SubResource("CapsuleShape2D_oul6g")
