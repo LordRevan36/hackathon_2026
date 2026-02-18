@@ -1,17 +1,10 @@
 [gd_scene format=3 uid="uid://c6eoypc6gh6vv"]
 
-<<<<<<< HEAD
 [node name="Node2D" type="Node2D" unique_id=123813094]
 [ext_resource type="PackedScene" uid="uid://c6hdoerwfiamt" path="res://player/player.tscn" id="1_ifuk2"]
 [ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="2_24j26"]
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="3_80iyk"]
 [ext_resource type="Script" uid="uid://csbpshquadh5o" path="res://props/platforms/platforms.gd" id="3_tghud"]
-=======
-[ext_resource type="PackedScene" uid="uid://c6hdoerwfiamt" path="res://player/player.tscn" id="1_ifuk2"]
-[ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="2_24j26"]
-[ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="3_80iyk"]
-[ext_resource type="Script" uid="uid://csbpshquadh5o" path="res://platforms.gd" id="3_tghud"]
->>>>>>> parent of 24bdd2e (Background)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tghud"]
 resource_local_to_scene = true
