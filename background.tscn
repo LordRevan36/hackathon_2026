@@ -1,9 +1,9 @@
-[gd_scene format=3 uid="uid://cw66p21sct4ct"]
+[gd_scene format=3 uid="uid://bqag12w53w8da"]
 
-[ext_resource type="Texture2D" uid="uid://dka8kbjleducc" path="res://assets/Screenshot 2026-02-18 040443.png" id="1_oabld"]
+[ext_resource type="Texture2D" path="res://assets/Screenshot 2026-02-18 040443.png" id="1_oabld"]
 
 [node name="Background" type="Node2D" unique_id=1061344931]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2019434882]
-position = Vector2(53, 181)
+position = Vector2(-98, 195)
 texture = ExtResource("1_oabld")
