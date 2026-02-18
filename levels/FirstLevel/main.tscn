@@ -2,6 +2,7 @@
 
 <<<<<<< HEAD
 [node name="Node2D" type="Node2D" unique_id=123813094]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://c6hdoerwfiamt" path="res://player/player.tscn" id="1_ifuk2"]
 [ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="2_24j26"]
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="3_80iyk"]
@@ -83,3 +84,5 @@ shape = SubResource("RectangleShape2D_2txkb")
 [editable path="Props/Platforms/Platform2"]
 [editable path="Props/Platforms/Platform3"]
 [editable path="Props/Platforms/Platform4"]
+=======
+>>>>>>> parent of b870d94 (Merge branch 'main' of https://github.com/LordRevan36/hackathon_2026)
