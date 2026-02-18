@@ -7,6 +7,7 @@ class_name Player
 
 var JUMP_CONSTANT = 650
 var RUN_CONSTANT = 250
+var ON_LADDER:bool = false
 
 enum State {IDLE, JUMP, LAND, WALK, RUN}
 
@@ -26,7 +27,7 @@ func _process(delta: float) -> void:
 			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER * 1.3
 		else:
 			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER
-	
+	if 
 	
 	#direction = Input.get_axis("left", "right")
 	#-1 left +1 right
@@ -72,3 +73,9 @@ func _update_animations() -> void:
 			player_sprite.play("jump")
 		State.RUN:
 			player_sprite.play("run")
+
+
+func _on_ladder_1_area_entered(area: Area2D) -> void:
+	ON_LADDER = true
+func _on_ladder_1_area_exited(area:Area2D) -> void:
+	ON_LADDER = false

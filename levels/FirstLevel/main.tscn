@@ -7,20 +7,21 @@
 [ext_resource type="Script" uid="uid://ctcr2vjb166dn" path="res://levels/FirstLevel/boxBody.gd" id="5_4kvjl"]
 [ext_resource type="Script" uid="uid://06fqumaf8ff1" path="res://levels/FirstLevel/button_1.gd" id="6_2txkb"]
 [ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="7_chv15"]
+[ext_resource type="Texture2D" uid="uid://bu3a0ewrhb8xn" path="res://assets/placeholder_sprites/COUPON.png" id="8_chv15"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tghud"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2txkb"]
 resource_local_to_scene = true
 size = Vector2(192, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kvjl"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oce1q"]
 resource_local_to_scene = true
 size = Vector2(184, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0t2k"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b72er"]
 resource_local_to_scene = true
 size = Vector2(168, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2txkb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxatx"]
 resource_local_to_scene = true
 size = Vector2(784, 36)
 
@@ -34,6 +35,9 @@ size = Vector2(130, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6asr"]
 size = Vector2(128, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pouej"]
+size = Vector2(24, 162)
 
 [node name="Node2D" type="Node2D" unique_id=990565084]
 
@@ -59,7 +63,7 @@ collision_mask = 3
 polygon = PackedVector2Array(-92, -14, 92, -14, 92, 14, -92, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_tghud")
+shape = SubResource("RectangleShape2D_2txkb")
 
 [node name="Platform2" parent="Props/Platforms" unique_id=1444205743 instance=ExtResource("3_80iyk")]
 position = Vector2(143, 65)
@@ -70,7 +74,7 @@ collision_mask = 3
 polygon = PackedVector2Array(-88, -14, 88, -14, 88, 14, -88, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform2" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_4kvjl")
+shape = SubResource("RectangleShape2D_oce1q")
 
 [node name="Platform3" parent="Props/Platforms" unique_id=400486735 instance=ExtResource("3_80iyk")]
 position = Vector2(-352, -52)
@@ -81,7 +85,7 @@ collision_mask = 3
 polygon = PackedVector2Array(-80, -14, 80, -14, 80, 14, -80, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform3" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_n0t2k")
+shape = SubResource("RectangleShape2D_b72er")
 
 [node name="Platform4" parent="Props/Platforms" unique_id=1518900774 instance=ExtResource("3_80iyk")]
 position = Vector2(0, 224)
@@ -93,7 +97,7 @@ visible = false
 polygon = PackedVector2Array(-388, -14, 388, -14, 388, 14, -388, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform4" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_2txkb")
+shape = SubResource("RectangleShape2D_dxatx")
 
 [node name="Box1" type="RigidBody2D" parent="Props" unique_id=1684234702]
 position = Vector2(-144, 8)
@@ -124,6 +128,18 @@ texture = ExtResource("7_chv15")
 [node name="pressedCheck" type="CollisionShape2D" parent="Props/button1" unique_id=810348579]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_x6asr")
+
+[node name="ladder1" type="Area2D" parent="Props" unique_id=1756052258]
+position = Vector2(-88, 128)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/ladder1" unique_id=579401834]
+shape = SubResource("RectangleShape2D_pouej")
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/ladder1" unique_id=1023446760]
+scale = Vector2(0.013043477, 0.06584867)
+texture = ExtResource("8_chv15")
+
+[connection signal="area_entered" from="Props/ladder1" to="Player" method="_on_ladder_1_area_entered"]
 
 [editable path="Props/Platforms/Platform"]
 [editable path="Props/Platforms/Platform2"]
