@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="3_80iyk"]
 [ext_resource type="Script" uid="uid://csbpshquadh5o" path="res://props/platforms/platforms.gd" id="3_tghud"]
 [ext_resource type="Script" uid="uid://ctcr2vjb166dn" path="res://levels/FirstLevel/boxBody.gd" id="5_4kvjl"]
+[ext_resource type="Script" uid="uid://06fqumaf8ff1" path="res://levels/FirstLevel/button_1.gd" id="6_2txkb"]
+[ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="7_chv15"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tghud"]
 resource_local_to_scene = true
@@ -26,6 +28,12 @@ size = Vector2(784, 36)
 size = Vector2(48, 48)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_n0t2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fclsm"]
+size = Vector2(130, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6asr"]
+size = Vector2(128, 10)
 
 [node name="Node2D" type="Node2D" unique_id=990565084]
 
@@ -87,19 +95,35 @@ polygon = PackedVector2Array(-388, -14, 388, -14, 388, 14, -388, 14)
 [node name="CollisionShape" parent="Props/Platforms/Platform4" index="1" unique_id=1909510158]
 shape = SubResource("RectangleShape2D_2txkb")
 
-[node name="Box1" type="RigidBody2D" parent="." unique_id=1684234702]
+[node name="Box1" type="RigidBody2D" parent="Props" unique_id=1684234702]
 position = Vector2(-144, 8)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("5_4kvjl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box1" unique_id=19759762]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/Box1" unique_id=19759762]
 shape = SubResource("RectangleShape2D_chv15")
 
-[node name="Sprite2D" type="Sprite2D" parent="Box1" unique_id=875272819]
+[node name="Sprite2D" type="Sprite2D" parent="Props/Box1" unique_id=875272819]
 position = Vector2(-5.722046e-06, 0)
 scale = Vector2(48.00002, 48.000004)
 texture = SubResource("PlaceholderTexture2D_n0t2k")
+
+[node name="button1" type="StaticBody2D" parent="Props" unique_id=373605909]
+position = Vector2(176, 200)
+script = ExtResource("6_2txkb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/button1" unique_id=1135078048]
+shape = SubResource("RectangleShape2D_fclsm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/button1" unique_id=80834639]
+position = Vector2(0, 1.9999981)
+scale = Vector2(1, 0.09374991)
+texture = ExtResource("7_chv15")
+
+[node name="pressedCheck" type="CollisionShape2D" parent="Props/button1" unique_id=810348579]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_x6asr")
 
 [editable path="Props/Platforms/Platform"]
 [editable path="Props/Platforms/Platform2"]
