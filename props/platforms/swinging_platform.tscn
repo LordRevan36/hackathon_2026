@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bi3k2jdfhxc8d"]
+
+[ext_resource type="Script" uid="uid://dkpm8gh8u8dgu" path="res://props/platforms/swinging_platform.gd" id="1_x5506"]
+[ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="2_c47u6"]
+[ext_resource type="Texture2D" uid="uid://cgusth0yyycvn" path="res://assets/rope_texture.png" id="3_c47u6"]
+
+[node name="SwingingPlatform" type="Node2D" unique_id=641372415 groups=["swinging_platform"]]
+script = ExtResource("1_x5506")
+swing_radius = 252.0
+
+[node name="Platform" parent="." unique_id=1810100926 instance=ExtResource("2_c47u6")]
+position = Vector2(0, 252)
+
+[node name="LeftLine" type="Line2D" parent="." unique_id=701014776]
+texture_repeat = 2
+points = PackedVector2Array(0, 0, -146, 234)
+width = 4.0
+texture = ExtResource("3_c47u6")
+texture_mode = 1
+
+[node name="RightLine" type="Line2D" parent="." unique_id=1359893425]
+texture_repeat = 2
+points = PackedVector2Array(0, 0, 146, 234)
+width = 4.0
+texture = ExtResource("3_c47u6")
+texture_mode = 1

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="3_80iyk"]
 [ext_resource type="Script" uid="uid://csbpshquadh5o" path="res://props/platforms/platforms.gd" id="3_tghud"]
 [ext_resource type="Script" uid="uid://ctcr2vjb166dn" path="res://levels/FirstLevel/boxBody.gd" id="5_4kvjl"]
+[ext_resource type="PackedScene" uid="uid://bi3k2jdfhxc8d" path="res://props/platforms/swinging_platform.tscn" id="5_x6asr"]
 [ext_resource type="Script" uid="uid://06fqumaf8ff1" path="res://levels/FirstLevel/button_1.gd" id="6_2txkb"]
 [ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="7_chv15"]
 [ext_resource type="Texture2D" uid="uid://bu3a0ewrhb8xn" path="res://assets/placeholder_sprites/COUPON.png" id="8_chv15"]
@@ -47,6 +48,10 @@ size = Vector2(292, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_slkj7"]
 resource_local_to_scene = true
 size = Vector2(180, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llal4"]
+resource_local_to_scene = true
+size = Vector2(212, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chv15"]
 size = Vector2(48, 48)
@@ -159,6 +164,25 @@ polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
 [node name="CollisionShape" parent="Props/Platforms/Platform7" index="1" unique_id=1909510158]
 shape = SubResource("RectangleShape2D_slkj7")
 
+[node name="SwingingPlatform" parent="Props" unique_id=641372415 groups=["swinging_platform"] instance=ExtResource("5_x6asr")]
+position = Vector2(-30, -372)
+swing_radius = 240.0
+
+[node name="Platform" parent="Props/SwingingPlatform" index="0" unique_id=1810100926]
+position = Vector2(0, 240)
+
+[node name="Polygon" parent="Props/SwingingPlatform/Platform" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-102, -14, 102, -14, 102, 14, -102, 14)
+
+[node name="CollisionShape" parent="Props/SwingingPlatform/Platform" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_llal4")
+
+[node name="LeftLine" parent="Props/SwingingPlatform" index="1" unique_id=701014776]
+points = PackedVector2Array(0, 0, -106, 222)
+
+[node name="RightLine" parent="Props/SwingingPlatform" index="2" unique_id=1359893425]
+points = PackedVector2Array(0, 0, 106, 222)
+
 [node name="Box1" type="RigidBody2D" parent="Props" unique_id=1684234702]
 position = Vector2(-144, 8)
 collision_layer = 2
@@ -211,3 +235,5 @@ position = Vector2(-3, 500)
 [editable path="Props/Platforms/Platform5"]
 [editable path="Props/Platforms/Platform6"]
 [editable path="Props/Platforms/Platform7"]
+[editable path="Props/SwingingPlatform"]
+[editable path="Props/SwingingPlatform/Platform"]

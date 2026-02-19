@@ -29,6 +29,7 @@ window/size/viewport_height=900
 [global_group]
 
 platform_group=""
+swinging_platform=""
 
 [input]
 

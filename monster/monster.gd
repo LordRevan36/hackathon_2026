@@ -37,6 +37,8 @@ func _find_best_platform() -> Node2D:
 	var possible_targets = []
 	
 	for prop in get_all_platforms:
+		if prop.get_parent().is_in_group("swinging_platform"):
+			continue
 		var distance = global_position.distance_to(prop.global_position)
 		var above : bool = global_position.y > prop.global_position.y
 		var minDist : bool = distance > global_monster.MONSTER_MIN_JUMP_DISTANCE
