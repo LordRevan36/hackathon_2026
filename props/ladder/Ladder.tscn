@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://fbv68jl8ugae"]
+
+[ext_resource type="Texture2D" uid="uid://bu3a0ewrhb8xn" path="res://assets/placeholder_sprites/COUPON.png" id="1_ity3q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38d2l"]
+size = Vector2(52, 162)
+
+[node name="Ladder" type="Node2D" unique_id=1721619138]
+
+[node name="ladder" type="Area2D" parent="." unique_id=1009803214]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ladder" unique_id=481175960]
+shape = SubResource("RectangleShape2D_38d2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="ladder" unique_id=100285996]
+scale = Vector2(0.028260868, 0.06584867)
+texture = ExtResource("1_ity3q")

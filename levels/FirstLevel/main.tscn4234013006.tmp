@@ -142,9 +142,24 @@ shape = SubResource("RectangleShape2D_pouej")
 scale = Vector2(0.028260868, 0.06584867)
 texture = ExtResource("8_chv15")
 
+[node name="ladder2" type="Area2D" parent="Props" unique_id=275856988]
+position = Vector2(-328, 128)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/ladder2" unique_id=396901875]
+shape = SubResource("RectangleShape2D_pouej")
+
+[node name="Sprite2D" type="Sprite2D" parent="Props/ladder2" unique_id=908938939]
+scale = Vector2(0.028260868, 0.06584867)
+texture = ExtResource("8_chv15")
+
 [connection signal="area_entered" from="Props/ladder1" to="Player" method="_on_ladder_1_area_entered"]
 [connection signal="body_entered" from="Props/ladder1" to="Player" method="_on_ladder_1_body_entered"]
 [connection signal="body_exited" from="Props/ladder1" to="Player" method="_on_ladder_1_body_exited"]
+[connection signal="area_entered" from="Props/ladder2" to="Player" method="_on_ladder_1_area_entered"]
+[connection signal="body_entered" from="Props/ladder2" to="Player" method="_on_ladder_1_body_entered"]
+[connection signal="body_exited" from="Props/ladder2" to="Player" method="_on_ladder_1_body_exited"]
 
 [editable path="Props/Platforms/Platform"]
 [editable path="Props/Platforms/Platform2"]

@@ -4,36 +4,40 @@ class_name Player
 #do this for any child nodes you want to call - makes it so that if the tree organization changes, the node call can be easily updated
 @onready var player_sprite = $PlayerSprite
 @onready var player_hitbox = $PlayerHitbox
+@onready var ladder = get_node("../Props/ladder1")
+@onready var ladderPos = ladder.position.x
 
 var JUMP_CONSTANT = 650
 var RUN_CONSTANT = 250
-var ON_LADDER:bool = false
+var ON_LADDER : bool = false
 
-enum State {IDLE, JUMP, LAND, WALK, RUN}
+enum State {IDLE, JUMP, LAND, WALK, RUN, CLIMB}
 
 var state : State = State.IDLE
 var direction
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	ON_LADDER = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if state == State.CLIMB:
+		
 	if not is_on_floor():
 		if velocity.y < 0:
 			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER * 1.3
 		else:
 			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER
-	#if 
-	
+			
 	#direction = Input.get_axis("left", "right")
-	#-1 left +1 right
-	
+#	-1 left +1 right
 	#each thing inside these if and elifs should be their own functions and better written but I was rushed
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if ON_LADDER and Input.is_action_just_pressed("jump") and state != State.CLIMB:
+		state = State.CLIMB
+		
+	elif Input.is_action_just_pressed("jump") and is_on_floor():
 		#jump animation is not ideal - it needs separated into jumping up and the actual landing bit or smth
 		velocity += Vector2(0, -JUMP_CONSTANT)
 		state = State.JUMP
@@ -50,7 +54,7 @@ func _process(delta: float) -> void:
 			_update_animations()
 		else:
 			player_sprite.flip_h = direction < 0
-		#velocity.x = move_toward(velocity.x, 0, direction * RUN_CONSTANT)
+		#velocity.x = move_toward(velocity.x, 0, direction * RUN_CONSTANT) 
 		velocity.x = direction * RUN_CONSTANT
 		
 	elif not Input.is_anything_pressed() and state != State.JUMP:
@@ -73,9 +77,21 @@ func _update_animations() -> void:
 			player_sprite.play("jump")
 		State.RUN:
 			player_sprite.play("run")
-
-
-func _on_ladder_1_area_entered(area: Area2D) -> void:
+#functions to check if you're on a ladder or not
+func _on_ladder_1_body_entered(body: Node2D) -> void:
 	ON_LADDER = true
-func _on_ladder_1_area_exited(area:Area2D) -> void:
+	print("debug on")
+func _on_ladder_1_body_exited(body: Node2D) -> void:
 	ON_LADDER = false
+	print("debug off")
+func ladderCtrl(ladderPos: int) -> bool:
+	position.x = ladderPos
+	velocity.y = 0
+	if Input.is_action_just_pressed("jump"):
+		position.y += -20
+		return(true)
+	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"):
+		state = State.IDLE
+		return(false)
+	else:
+		return(true)
