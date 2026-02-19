@@ -164,7 +164,7 @@ polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
 [node name="CollisionShape" parent="Props/Platforms/Platform7" index="1" unique_id=1909510158]
 shape = SubResource("RectangleShape2D_slkj7")
 
-[node name="SwingingPlatform" parent="Props" unique_id=641372415 groups=["swinging_platform"] instance=ExtResource("5_x6asr")]
+[node name="SwingingPlatform" parent="Props" unique_id=641372415 instance=ExtResource("5_x6asr")]
 position = Vector2(-30, -372)
 swing_radius = 240.0
 

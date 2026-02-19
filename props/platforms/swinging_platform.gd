@@ -75,6 +75,7 @@ func _save_velocity(delta: float) -> void:
 	current_velocity = (current_global_pos - _last_platform_global_pos) / delta
 	# Save this position for the next frame's math
 	_last_platform_global_pos = current_global_pos
+	platform.constant_linear_velocity = current_velocity
 
 func _get_swing_velocity() -> Vector2:
 	return current_velocity
