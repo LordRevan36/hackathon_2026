@@ -19,11 +19,16 @@ config/icon="res://icon.svg"
 
 global_player="*uid://n35gwmvgcise"
 global_constants="*uid://boh5ywghb5kf7"
+global_monster="*uid://btb75codwqi64"
 
 [display]
 
 window/size/viewport_width=1440
 window/size/viewport_height=900
+
+[global_group]
+
+platform_group=""
 
 [input]
 

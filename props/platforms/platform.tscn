@@ -7,7 +7,7 @@
 resource_local_to_scene = true
 size = Vector2(292, 36)
 
-[node name="Platform" type="StaticBody2D" unique_id=1810100926]
+[node name="Platform" type="StaticBody2D" unique_id=1810100926 groups=["platform_group"]]
 script = ExtResource("1_gpub6")
 borderTexture = ExtResource("2_nyff6")
 borderWidth = 8.0

@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 		_sync_shapes()
 
 func _snap_function() -> void:
-	if not enableSnap or not Engine.is_editor_hint():
+	if not enableSnap or not Engine.is_editor_hint() or not collision_shape:
 		return
 	var current_position = collision_shape.position
 	var new_position = Vector2()

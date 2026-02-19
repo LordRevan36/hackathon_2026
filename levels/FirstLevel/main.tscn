@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://06fqumaf8ff1" path="res://levels/FirstLevel/button_1.gd" id="6_2txkb"]
 [ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="7_chv15"]
 [ext_resource type="Texture2D" uid="uid://bu3a0ewrhb8xn" path="res://assets/placeholder_sprites/COUPON.png" id="8_chv15"]
+[ext_resource type="PackedScene" uid="uid://cykqp540sjmn" path="res://monster/monster.tscn" id="9_fclsm"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_chv15"]
 resource_local_to_scene = true
@@ -34,6 +35,18 @@ size = Vector2(168, 36)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3u2or"]
 resource_local_to_scene = true
 size = Vector2(784, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwkd7"]
+resource_local_to_scene = true
+size = Vector2(576, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ab11"]
+resource_local_to_scene = true
+size = Vector2(292, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slkj7"]
+resource_local_to_scene = true
+size = Vector2(180, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chv15"]
 size = Vector2(48, 48)
@@ -89,7 +102,7 @@ polygon = PackedVector2Array(-92, -14, 92, -14, 92, 14, -92, 14)
 shape = SubResource("RectangleShape2D_oce1q")
 
 [node name="Platform2" parent="Props/Platforms" unique_id=1444205743 instance=ExtResource("3_80iyk")]
-position = Vector2(143, 65)
+position = Vector2(167, 21)
 collision_layer = 3
 collision_mask = 3
 
@@ -121,6 +134,30 @@ polygon = PackedVector2Array(-388, -14, 388, -14, 388, 14, -388, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform4" index="1" unique_id=1909510158]
 shape = SubResource("RectangleShape2D_3u2or")
+
+[node name="Platform5" parent="Props/Platforms" unique_id=1155819569 instance=ExtResource("3_80iyk")]
+position = Vector2(-1, 506)
+
+[node name="Polygon" parent="Props/Platforms/Platform5" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-284, -14, 284, -14, 284, 14, -284, 14)
+
+[node name="CollisionShape" parent="Props/Platforms/Platform5" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_wwkd7")
+
+[node name="Platform6" parent="Props/Platforms" unique_id=1820862010 instance=ExtResource("3_80iyk")]
+position = Vector2(-116, -493)
+
+[node name="CollisionShape" parent="Props/Platforms/Platform6" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_0ab11")
+
+[node name="Platform7" parent="Props/Platforms" unique_id=850538308 instance=ExtResource("3_80iyk")]
+position = Vector2(256, -268)
+
+[node name="Polygon" parent="Props/Platforms/Platform7" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
+
+[node name="CollisionShape" parent="Props/Platforms/Platform7" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_slkj7")
 
 [node name="Box1" type="RigidBody2D" parent="Props" unique_id=1684234702]
 position = Vector2(-144, 8)
@@ -162,9 +199,15 @@ shape = SubResource("RectangleShape2D_pouej")
 scale = Vector2(0.013043477, 0.06584867)
 texture = ExtResource("8_chv15")
 
+[node name="monster" parent="." unique_id=1608162952 instance=ExtResource("9_fclsm")]
+position = Vector2(-3, 500)
+
 [connection signal="area_entered" from="Props/ladder1" to="Player" method="_on_ladder_1_area_entered"]
 
 [editable path="Props/Platforms/Platform"]
 [editable path="Props/Platforms/Platform2"]
 [editable path="Props/Platforms/Platform3"]
 [editable path="Props/Platforms/Platform4"]
+[editable path="Props/Platforms/Platform5"]
+[editable path="Props/Platforms/Platform6"]
+[editable path="Props/Platforms/Platform7"]
