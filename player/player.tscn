@@ -199,8 +199,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_c35mf")
+}, {
+"duration": 1.0,
+"texture": null
 }],
-"loop": true,
+"loop": false,
 "name": &"death",
 "speed": 5.0
 }, {
@@ -336,5 +339,5 @@ shape = SubResource("CapsuleShape2D_oul6g")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1032938156]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
-animation = &"jump"
+animation = &"death"
 autoplay = "idle"

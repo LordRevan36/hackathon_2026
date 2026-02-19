@@ -7,9 +7,9 @@ class_name Player
 
 var JUMP_CONSTANT = 650
 var RUN_CONSTANT = 250
-var ON_LADDER:bool = false
+var ON_LADDER : bool = false
 
-enum State {IDLE, JUMP, LAND, WALK, RUN}
+enum State {IDLE, JUMP, LAND, WALK, RUN, DEAD}
 
 var state : State = State.IDLE
 var direction
@@ -17,7 +17,7 @@ var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	global_player.fellToDeath.connect(_falling_to_death)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,30 +33,29 @@ func _process(delta: float) -> void:
 	#-1 left +1 right
 	
 	#each thing inside these if and elifs should be their own functions and better written but I was rushed
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		#jump animation is not ideal - it needs separated into jumping up and the actual landing bit or smth
-		velocity += Vector2(0, -JUMP_CONSTANT)
-		state = State.JUMP
-		_update_animations()
-	elif is_on_floor() and state == State.JUMP:
-		#state = State.LAND - this wouldn't do anything atm but have it here in case
-		global_player.landed.emit()
-		state = State.IDLE
-		_update_animations()
-	elif (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
-		direction = Input.get_axis("left", "right")
-		if is_on_floor():
-			state = State.RUN
+	if state != State.DEAD:
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			#jump animation is not ideal - it needs separated into jumping up and the actual landing bit or smth
+			velocity += Vector2(0, -JUMP_CONSTANT)
+			state = State.JUMP
 			_update_animations()
-		else:
-			player_sprite.flip_h = direction < 0
-		#velocity.x = move_toward(velocity.x, 0, direction * RUN_CONSTANT)
-		velocity.x = direction * RUN_CONSTANT
-		
-	elif not Input.is_anything_pressed() and state != State.JUMP:
-		state = State.IDLE
-		_update_animations()
-	
+		elif is_on_floor() and state == State.JUMP:
+			#state = State.LAND - this wouldn't do anything atm but have it here in case
+			global_player.landed.emit()
+			state = State.IDLE
+			_update_animations()
+		elif (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+			direction = Input.get_axis("left", "right")
+			if is_on_floor():
+				state = State.RUN
+				_update_animations()
+			else:
+				player_sprite.flip_h = direction < 0
+			#velocity.x = move_toward(velocity.x, 0, direction * RUN_CONSTANT)
+			velocity.x = direction * RUN_CONSTANT
+		elif not Input.is_anything_pressed() and state != State.JUMP:
+			state = State.IDLE
+			_update_animations()
 	if state == State.IDLE:
 		velocity.x = 0
 	move_and_slide()
@@ -74,6 +73,10 @@ func _update_animations() -> void:
 		State.RUN:
 			player_sprite.play("run")
 
+func _falling_to_death() -> void:
+	if state != State.DEAD:
+		state = State.DEAD
+		player_sprite.play("death")
 
 func _on_ladder_1_area_entered(area: Area2D) -> void:
 	ON_LADDER = true

@@ -9,6 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="7_chv15"]
 [ext_resource type="Texture2D" uid="uid://bu3a0ewrhb8xn" path="res://assets/placeholder_sprites/COUPON.png" id="8_chv15"]
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_chv15"]
+resource_local_to_scene = true
+a = Vector2(0, -800)
+b = Vector2(0, 800)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_fclsm"]
+resource_local_to_scene = true
+a = Vector2(0, -800)
+b = Vector2(0, 800)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oce1q"]
 resource_local_to_scene = true
 size = Vector2(192, 36)
@@ -45,9 +55,22 @@ size = Vector2(24, 162)
 position = Vector2(-2, 1)
 collision_layer = 3
 
-[node name="Camera" type="Camera2D" parent="Player" unique_id=1442234323]
-zoom = Vector2(2.5, 2.5)
+[node name="Camera" type="Camera2D" parent="." unique_id=1442234323]
+position = Vector2(-2, 1)
+zoom = Vector2(2, 2)
 script = ExtResource("2_24j26")
+
+[node name="LeftWall" type="StaticBody2D" parent="Camera" unique_id=339817341]
+position = Vector2(541, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/LeftWall" unique_id=173195236]
+shape = SubResource("SegmentShape2D_chv15")
+
+[node name="RightWall" type="StaticBody2D" parent="Camera" unique_id=1358660510]
+position = Vector2(-570, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/RightWall" unique_id=117346448]
+shape = SubResource("SegmentShape2D_fclsm")
 
 [node name="Props" type="Node2D" parent="." unique_id=271831654]
 
