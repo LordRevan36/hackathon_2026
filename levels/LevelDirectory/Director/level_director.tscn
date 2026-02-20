@@ -31,7 +31,6 @@ position = Vector2(720, 800)
 
 [node name="Camera" type="Camera2D" parent="." unique_id=719269384]
 position = Vector2(720, 800)
-zoom = Vector2(2, 2)
 script = ExtResource("5_wu7qg")
 
 [node name="LeftWall" type="StaticBody2D" parent="Camera" unique_id=624322020]

@@ -6,8 +6,9 @@ extends Camera2D
 @onready var leftCollider = $"LeftWall/CollisionShape2D"
 @onready var rightCollider = $"RightWall/CollisionShape2D"
 
+@export var pauseScroll : bool = false
 static var SCROLL_CONSTANT = 15
-static var PLAYER_CATCH_CONSTANT = -200
+static var PLAYER_CATCH_CONSTANT = 50
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,7 +22,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#slow constant scroll up
-	#position.y = position.y - delta * SCROLL_CONSTANT
+	if not pauseScroll:
+		position.y = position.y - delta * SCROLL_CONSTANT
 	#follow player up, don't follow player back down
 	if player.position.y < position.y:
 		position.y = player.position.y
