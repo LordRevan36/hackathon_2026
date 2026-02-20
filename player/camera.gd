@@ -21,7 +21,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#slow constant scroll up
-	position.y = position.y - delta * SCROLL_CONSTANT
+	#position.y = position.y - delta * SCROLL_CONSTANT
 	#follow player up, don't follow player back down
 	if player.position.y < position.y:
 		position.y = player.position.y

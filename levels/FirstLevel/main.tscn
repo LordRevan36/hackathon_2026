@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c6hdoerwfiamt" path="res://player/player.tscn" id="1_ifuk2"]
 [ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="2_24j26"]
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="3_80iyk"]
+[ext_resource type="PackedScene" uid="uid://fbv68jl8ugae" path="res://props/ladder/Ladder.tscn" id="3_oce1q"]
 [ext_resource type="Script" uid="uid://csbpshquadh5o" path="res://props/platforms/platforms.gd" id="3_tghud"]
 [ext_resource type="Script" uid="uid://ctcr2vjb166dn" path="res://props/box/boxBody.gd" id="5_4kvjl"]
 [ext_resource type="PackedScene" uid="uid://bi3k2jdfhxc8d" path="res://props/platforms/swinging_platform.tscn" id="5_x6asr"]
@@ -21,35 +22,35 @@ resource_local_to_scene = true
 a = Vector2(0, -800)
 b = Vector2(0, 800)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oce1q"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b72er"]
 resource_local_to_scene = true
 size = Vector2(192, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b72er"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxatx"]
 resource_local_to_scene = true
 size = Vector2(184, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxatx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u2or"]
 resource_local_to_scene = true
 size = Vector2(168, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u2or"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwkd7"]
 resource_local_to_scene = true
 size = Vector2(784, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwkd7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ab11"]
 resource_local_to_scene = true
 size = Vector2(576, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ab11"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slkj7"]
 resource_local_to_scene = true
 size = Vector2(292, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_slkj7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llal4"]
 resource_local_to_scene = true
 size = Vector2(180, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_llal4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ex8g"]
 resource_local_to_scene = true
 size = Vector2(212, 36)
 
@@ -93,6 +94,9 @@ shape = SubResource("SegmentShape2D_fclsm")
 
 [node name="Props" type="Node2D" parent="." unique_id=271831654]
 
+[node name="Ladder" parent="Props" unique_id=1721619138 instance=ExtResource("3_oce1q")]
+position = Vector2(-328, 128)
+
 [node name="Platforms" type="Node2D" parent="Props" unique_id=872377628]
 script = ExtResource("3_tghud")
 
@@ -106,7 +110,7 @@ useBorders = true
 polygon = PackedVector2Array(-92, -14, 92, -14, 92, 14, -92, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_oce1q")
+shape = SubResource("RectangleShape2D_b72er")
 
 [node name="Platform2" parent="Props/Platforms" unique_id=1444205743 instance=ExtResource("3_80iyk")]
 position = Vector2(167, 21)
@@ -118,7 +122,7 @@ useBorders = true
 polygon = PackedVector2Array(-88, -14, 88, -14, 88, 14, -88, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform2" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_b72er")
+shape = SubResource("RectangleShape2D_dxatx")
 
 [node name="Platform3" parent="Props/Platforms" unique_id=400486735 instance=ExtResource("3_80iyk")]
 position = Vector2(-352, -52)
@@ -130,7 +134,7 @@ useBorders = true
 polygon = PackedVector2Array(-80, -14, 80, -14, 80, 14, -80, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform3" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_dxatx")
+shape = SubResource("RectangleShape2D_3u2or")
 
 [node name="Platform4" parent="Props/Platforms" unique_id=1518900774 instance=ExtResource("3_80iyk")]
 position = Vector2(0, 224)
@@ -143,7 +147,7 @@ visible = false
 polygon = PackedVector2Array(-388, -14, 388, -14, 388, 14, -388, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform4" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_3u2or")
+shape = SubResource("RectangleShape2D_wwkd7")
 
 [node name="Platform5" parent="Props/Platforms" unique_id=1155819569 instance=ExtResource("3_80iyk")]
 position = Vector2(-1, 506)
@@ -153,14 +157,14 @@ useBorders = true
 polygon = PackedVector2Array(-284, -14, 284, -14, 284, 14, -284, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform5" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_wwkd7")
+shape = SubResource("RectangleShape2D_0ab11")
 
 [node name="Platform6" parent="Props/Platforms" unique_id=1820862010 instance=ExtResource("3_80iyk")]
 position = Vector2(-116, -493)
 useBorders = true
 
 [node name="CollisionShape" parent="Props/Platforms/Platform6" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_0ab11")
+shape = SubResource("RectangleShape2D_slkj7")
 
 [node name="Platform7" parent="Props/Platforms" unique_id=850538308 instance=ExtResource("3_80iyk")]
 position = Vector2(256, -268)
@@ -170,7 +174,7 @@ useBorders = false
 polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform7" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_slkj7")
+shape = SubResource("RectangleShape2D_llal4")
 
 [node name="SwingingPlatform" parent="Props" unique_id=641372415 instance=ExtResource("5_x6asr")]
 position = Vector2(-30, -372)
@@ -184,7 +188,7 @@ useBorders = true
 polygon = PackedVector2Array(-102, -14, 102, -14, 102, 14, -102, 14)
 
 [node name="CollisionShape" parent="Props/SwingingPlatform/Platform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_llal4")
+shape = SubResource("RectangleShape2D_0ex8g")
 
 [node name="LeftLine" parent="Props/SwingingPlatform" index="1" unique_id=701014776]
 points = PackedVector2Array(0, 0, -106, 222)
@@ -223,6 +227,7 @@ position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_x6asr")
 
 [node name="ladder1" type="Area2D" parent="Props" unique_id=1756052258]
+visible = false
 position = Vector2(-328, 128)
 collision_layer = 3
 collision_mask = 3
