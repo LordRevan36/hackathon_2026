@@ -24,10 +24,10 @@ func _process(delta: float) -> void:
 	#slow constant scroll up
 	if not pauseScroll:
 		position.y = position.y - delta * SCROLL_CONSTANT
-	#follow player up, don't follow player back down
-	if player.position.y < position.y:
-		position.y = player.position.y
-	#follow player to their death
-	if player.position.y > position.y + global_constants.SCREEN_HEIGHT/2 - PLAYER_CATCH_CONSTANT:
-		position.y = player.position.y - global_constants.SCREEN_HEIGHT/2 + PLAYER_CATCH_CONSTANT
-		global_player.fellToDeath.emit()
+		#follow player up, don't follow player back down
+		if player.position.y < position.y:
+			position.y = player.position.y
+		#follow player to their death
+		if player.position.y > position.y + global_constants.SCREEN_HEIGHT/2 - PLAYER_CATCH_CONSTANT:
+			position.y = player.position.y - global_constants.SCREEN_HEIGHT/2 + PLAYER_CATCH_CONSTANT
+			global_player.fellToDeath.emit()

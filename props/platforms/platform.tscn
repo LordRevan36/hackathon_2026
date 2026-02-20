@@ -13,7 +13,7 @@ borderTexture = ExtResource("2_nyff6")
 borderWidth = 8.0
 
 [node name="Polygon" type="Polygon2D" parent="." unique_id=1214519473]
-color = Color(0.2495788, 0.15347227, 0.071952514, 1)
+texture_repeat = 2
 polygon = PackedVector2Array(-142, -14, 142, -14, 142, 14, -142, 14)
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1909510158]

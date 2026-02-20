@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="1_r628d"]
 [ext_resource type="Script" uid="uid://d3uy8n27i3sq5" path="res://props/platforms/grate.gd" id="2_2wj0f"]
+[ext_resource type="Texture2D" uid="uid://dcepox1ch680v" path="res://assets/grate_texture_2.png" id="3_6hnym"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pep46"]
 resource_local_to_scene = true
@@ -14,8 +15,8 @@ borderTexture = null
 borderWidth = 0.0
 
 [node name="Polygon" parent="." index="0" unique_id=1214519473]
-texture_repeat = 2
 color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+texture = ExtResource("3_6hnym")
 polygon = PackedVector2Array(-146, -18, 146, -18, 146, 18, -146, 18)
 
 [node name="CollisionShape" parent="." index="1" unique_id=1909510158]
