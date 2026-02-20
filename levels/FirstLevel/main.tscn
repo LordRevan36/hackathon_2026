@@ -77,8 +77,8 @@ collision_layer = 3
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1442234323]
 position = Vector2(-2, 1)
-zoom = Vector2(2, 2)
 script = ExtResource("2_24j26")
+pauseScroll = true
 
 [node name="LeftWall" type="StaticBody2D" parent="Camera" unique_id=339817341]
 position = Vector2(541, 0)
