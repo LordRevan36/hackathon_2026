@@ -4,8 +4,8 @@
 [ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="2_24j26"]
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="3_80iyk"]
 [ext_resource type="Script" uid="uid://csbpshquadh5o" path="res://props/platforms/platforms.gd" id="3_tghud"]
-[ext_resource type="Script" uid="uid://ctcr2vjb166dn" path="res://levels/FirstLevel/boxBody.gd" id="5_4kvjl"]
-[ext_resource type="Script" uid="uid://06fqumaf8ff1" path="res://levels/FirstLevel/button_1.gd" id="6_2txkb"]
+[ext_resource type="Script" uid="uid://ctcr2vjb166dn" path="res://props/box/boxBody.gd" id="5_4kvjl"]
+[ext_resource type="Script" uid="uid://06fqumaf8ff1" path="res://props/button/button_1.gd" id="6_2txkb"]
 [ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="7_chv15"]
 [ext_resource type="Texture2D" uid="uid://bu3a0ewrhb8xn" path="res://assets/placeholder_sprites/COUPON.png" id="8_chv15"]
 

@@ -24,46 +24,47 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if state == State.CLIMB:
-		
-	if not is_on_floor():
-		if velocity.y < 0:
-			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER * 1.3
-		else:
-			velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER
+		ladderCtrl(ladderPos)
+	else:
+		if not is_on_floor():
+			if velocity.y < 0:
+				velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER * 1.3
+			else:
+				velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER
+				
+		#direction = Input.get_axis("left", "right")
+	#	-1 left +1 right
+		#each thing inside these if and elifs should be their own functions and better written but I was rushed
+		if ON_LADDER and Input.is_action_just_pressed("jump") and state != State.CLIMB:
+			state = State.CLIMB
 			
-	#direction = Input.get_axis("left", "right")
-#	-1 left +1 right
-	#each thing inside these if and elifs should be their own functions and better written but I was rushed
-	if ON_LADDER and Input.is_action_just_pressed("jump") and state != State.CLIMB:
-		state = State.CLIMB
-		
-	elif Input.is_action_just_pressed("jump") and is_on_floor():
-		#jump animation is not ideal - it needs separated into jumping up and the actual landing bit or smth
-		velocity += Vector2(0, -JUMP_CONSTANT)
-		state = State.JUMP
-		_update_animations()
-	elif is_on_floor() and state == State.JUMP:
-		#state = State.LAND - this wouldn't do anything atm but have it here in case
-		global_player.landed.emit()
-		state = State.IDLE
-		_update_animations()
-	elif (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
-		direction = Input.get_axis("left", "right")
-		if is_on_floor():
-			state = State.RUN
+		elif Input.is_action_just_pressed("jump") and is_on_floor():
+			#jump animation is not ideal - it needs separated into jumping up and the actual landing bit or smth
+			velocity += Vector2(0, -JUMP_CONSTANT)
+			state = State.JUMP
 			_update_animations()
-		else:
-			player_sprite.flip_h = direction < 0
-		#velocity.x = move_toward(velocity.x, 0, direction * RUN_CONSTANT) 
-		velocity.x = direction * RUN_CONSTANT
+		elif is_on_floor() and state == State.JUMP:
+			#state = State.LAND - this wouldn't do anything atm but have it here in case
+			global_player.landed.emit()
+			state = State.IDLE
+			_update_animations()
+		elif (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+			direction = Input.get_axis("left", "right")
+			if is_on_floor():
+				state = State.RUN
+				_update_animations()
+			else:
+				player_sprite.flip_h = direction < 0
+			#velocity.x = move_toward(velocity.x, 0, direction * RUN_CONSTANT) 
+			velocity.x = direction * RUN_CONSTANT
+			
+		elif not Input.is_anything_pressed() and state != State.JUMP:
+			state = State.IDLE
+			_update_animations()
 		
-	elif not Input.is_anything_pressed() and state != State.JUMP:
-		state = State.IDLE
-		_update_animations()
-	
-	if state == State.IDLE:
-		velocity.x = 0
-	move_and_slide()
+		if state == State.IDLE:
+			velocity.x = 0
+		move_and_slide()
 
 func _update_animations() -> void:
 	if direction == 1:
@@ -90,7 +91,7 @@ func ladderCtrl(ladderPos: int) -> bool:
 	if Input.is_action_just_pressed("jump"):
 		position.y += -20
 		return(true)
-	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"):
+	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right") or !ON_LADDER:
 		state = State.IDLE
 		return(false)
 	else:
