@@ -10,8 +10,9 @@ class_name Player
 @export var AIR_ACCEL: float = 1000.0 # How fast you change direction in the air
 @export var AIR_FRICTION: float = 100.0 # How fast you slow down when you let go in the air
 
-enum State {IDLE, JUMP, LAND, WALK, RUN, CLIMB}
+enum State {IDLE, JUMP, LAND, WALK, RUN, CLIMB, FALL, DEAD}
 
+var ON_LADDER = false
 var state : State = State.IDLE
 var direction
 
@@ -23,7 +24,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if state == State.CLIMB:
-		ladderCtrl(ladderPos)
+		global_player.ladderCtrl()
 	else:
 		if not is_on_floor():
 			if velocity.y < 0:
@@ -83,7 +84,7 @@ func _falling_to_death() -> void:
 		state = State.DEAD
 		_update_animations()
 
-func _on_ladder_1_area_entered(area: Area2D) -> void:
+
 #functions to check if you're on a ladder or not
 func _on_ladder_1_body_entered(body: Node2D) -> void:
 	ON_LADDER = true
