@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b82mhjrk8aagr"]
+
+[ext_resource type="PackedScene" uid="uid://c33lvwqepyaqf" path="res://levels/LevelDirectory/chunks/pair_l_block/right/right_l_block.tscn" id="1_ctwdh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ctwdh"]
+resource_local_to_scene = true
+size = Vector2(144, 36)
+
+[node name="RightLBlock01" unique_id=69217074 instance=ExtResource("1_ctwdh")]
+
+[node name="CollisionShape" parent="Geometry/TopRightPlatform" parent_id_path=PackedInt32Array(1952376278) index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_ctwdh")
+
+[editable path="Geometry/TopRightPlatform"]

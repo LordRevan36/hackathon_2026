@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ddyhjfbtwirl6"]
+
+[ext_resource type="Script" uid="uid://bl7tpe2d4bd8h" path="res://levels/LevelDirectory/chunks/base/base_chunk.gd" id="1_vl8q7"]
+
+[node name="BaseChunk" type="Node2D" unique_id=69217074]
+script = ExtResource("1_vl8q7")
+
+[node name="BottomCenter" type="Marker2D" parent="." unique_id=1004701686]
+position = Vector2(720, 900)
+
+[node name="TopCenter" type="Marker2D" parent="." unique_id=226680006]
+position = Vector2(720, 0)
+
+[node name="Geometry" type="Node2D" parent="." unique_id=1862465642]
+
+[node name="Props" type="Node2D" parent="." unique_id=1442607]

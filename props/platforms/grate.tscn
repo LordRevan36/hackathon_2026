@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bbjedi8pjw5yl"]
+
+[ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="1_r628d"]
+[ext_resource type="Script" uid="uid://d3uy8n27i3sq5" path="res://props/platforms/grate.gd" id="2_2wj0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pep46"]
+resource_local_to_scene = true
+size = Vector2(292, 36)
+
+[node name="Grate" unique_id=1810100926 instance=ExtResource("1_r628d")]
+script = ExtResource("2_2wj0f")
+useBorders = false
+borderTexture = null
+borderWidth = 0.0
+
+[node name="Polygon" parent="." index="0" unique_id=1214519473]
+texture_repeat = 2
+color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+polygon = PackedVector2Array(-146, -18, 146, -18, 146, 18, -146, 18)
+
+[node name="CollisionShape" parent="." index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_pep46")
+one_way_collision = true

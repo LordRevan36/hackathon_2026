@@ -336,6 +336,7 @@ radius = 24.0
 height = 90.0
 
 [node name="Player" type="CharacterBody2D" unique_id=58500348]
+floor_snap_length = 10.0
 script = ExtResource("1_oul6g")
 
 [node name="PlayerHitbox" type="CollisionShape2D" parent="." unique_id=1999700949]

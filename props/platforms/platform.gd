@@ -6,10 +6,14 @@ class_name platform
 @onready var polygon = $Polygon
 @onready var border_lines = $BorderLines
 
+@export var useBorders : bool = true
 @export var borderTexture : Texture
 @export var borderWidth : float
+#@export var bodyTexture : Texture
+#@export var textureScale : Vector2 = Vector2(1, 1)
 @export var enableSnap : bool = true
 @export var centerRect : bool = false
+
 
 #when adding platforms, make sure to right click on the platform node and select editable children
 
@@ -38,7 +42,7 @@ func _process(delta: float) -> void:
 		_sync_shapes()
 
 func _snap_function() -> void:
-	if not enableSnap or not Engine.is_editor_hint() or not collision_shape:
+	if not enableSnap or not Engine.is_editor_hint() or not collision_shape or not collision_shape.shape:
 		return
 	var current_position = collision_shape.position
 	var new_position = Vector2()
@@ -69,18 +73,18 @@ func _get_points(size : Vector2) -> PackedVector2Array:
 	return pts
 
 func _sync_shapes() -> void:
-	if not collision_shape or not polygon or not border_lines:
+	if not collision_shape or not polygon or (not border_lines and useBorders) or not collision_shape.shape:
 		return
 	if centerRect:
 		_center_node()
 	var size_vector = collision_shape.shape.size
 	var adjusted_size_vector = size_vector - Vector2(borderWidth, borderWidth)
 	polygon.polygon = _get_points(adjusted_size_vector)
-	#polygon.transform = collision_shape.
-	_generate_border_lines(polygon.polygon)
+	if useBorders:
+		_generate_border_lines(polygon.polygon)
 	polygon.transform = collision_shape.transform
 	border_lines.transform = collision_shape.transform
-	
+
 func _clear_children(parent_node) -> void:
 	for child in parent_node.get_children():
 		child.queue_free()

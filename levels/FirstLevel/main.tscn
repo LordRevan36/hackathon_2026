@@ -100,6 +100,7 @@ script = ExtResource("3_tghud")
 position = Vector2(-201, 85)
 collision_layer = 3
 collision_mask = 3
+useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-92, -14, 92, -14, 92, 14, -92, 14)
@@ -111,6 +112,7 @@ shape = SubResource("RectangleShape2D_oce1q")
 position = Vector2(167, 21)
 collision_layer = 3
 collision_mask = 3
+useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform2" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-88, -14, 88, -14, 88, 14, -88, 14)
@@ -122,6 +124,7 @@ shape = SubResource("RectangleShape2D_b72er")
 position = Vector2(-352, -52)
 collision_layer = 3
 collision_mask = 3
+useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform3" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-80, -14, 80, -14, 80, 14, -80, 14)
@@ -133,6 +136,7 @@ shape = SubResource("RectangleShape2D_dxatx")
 position = Vector2(0, 224)
 collision_layer = 3
 collision_mask = 3
+useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform4" index="0" unique_id=1214519473]
 visible = false
@@ -143,6 +147,7 @@ shape = SubResource("RectangleShape2D_3u2or")
 
 [node name="Platform5" parent="Props/Platforms" unique_id=1155819569 instance=ExtResource("3_80iyk")]
 position = Vector2(-1, 506)
+useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform5" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-284, -14, 284, -14, 284, 14, -284, 14)
@@ -152,12 +157,14 @@ shape = SubResource("RectangleShape2D_wwkd7")
 
 [node name="Platform6" parent="Props/Platforms" unique_id=1820862010 instance=ExtResource("3_80iyk")]
 position = Vector2(-116, -493)
+useBorders = true
 
 [node name="CollisionShape" parent="Props/Platforms/Platform6" index="1" unique_id=1909510158]
 shape = SubResource("RectangleShape2D_0ab11")
 
 [node name="Platform7" parent="Props/Platforms" unique_id=850538308 instance=ExtResource("3_80iyk")]
 position = Vector2(256, -268)
+useBorders = false
 
 [node name="Polygon" parent="Props/Platforms/Platform7" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
@@ -171,6 +178,7 @@ swing_radius = 240.0
 
 [node name="Platform" parent="Props/SwingingPlatform" index="0" unique_id=1810100926]
 position = Vector2(0, 240)
+useBorders = true
 
 [node name="Polygon" parent="Props/SwingingPlatform/Platform" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-102, -14, 102, -14, 102, 14, -102, 14)
