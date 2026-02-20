@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bi3k2jdfhxc8d" path="res://props/platforms/swinging_platform.tscn" id="5_x6asr"]
 [ext_resource type="Script" uid="uid://06fqumaf8ff1" path="res://props/button/button_1.gd" id="6_2txkb"]
 [ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="7_chv15"]
-[ext_resource type="Texture2D" uid="uid://bu3a0ewrhb8xn" path="res://assets/placeholder_sprites/COUPON.png" id="8_chv15"]
 [ext_resource type="PackedScene" uid="uid://cykqp540sjmn" path="res://monster/monster.tscn" id="9_fclsm"]
+[ext_resource type="PackedScene" uid="uid://cp5hfn643b8ar" path="res://props/rope/rope.tscn" id="10_oce1q"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_chv15"]
 resource_local_to_scene = true
@@ -30,27 +30,27 @@ size = Vector2(192, 36)
 resource_local_to_scene = true
 size = Vector2(184, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u2or"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pouej"]
 resource_local_to_scene = true
 size = Vector2(168, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwkd7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u2or"]
 resource_local_to_scene = true
 size = Vector2(784, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ab11"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wwkd7"]
 resource_local_to_scene = true
 size = Vector2(576, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_slkj7"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ab11"]
 resource_local_to_scene = true
 size = Vector2(292, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_llal4"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_slkj7"]
 resource_local_to_scene = true
 size = Vector2(180, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ex8g"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_llal4"]
 resource_local_to_scene = true
 size = Vector2(212, 36)
 
@@ -65,19 +65,15 @@ size = Vector2(130, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6asr"]
 size = Vector2(128, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pouej"]
-size = Vector2(52, 162)
-
 [node name="Node2D" type="Node2D" unique_id=990565084]
 
-[node name="Player" parent="." unique_id=58500348 instance=ExtResource("1_ifuk2")]
+[node name="Player" parent="." unique_id=58500348 groups=["player"] instance=ExtResource("1_ifuk2")]
 z_index = 1
 position = Vector2(128, -8)
 collision_layer = 3
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1442234323]
 position = Vector2(-2, 1)
-zoom = Vector2(2, 2)
 script = ExtResource("2_24j26")
 
 [node name="LeftWall" type="StaticBody2D" parent="Camera" unique_id=339817341]
@@ -95,7 +91,7 @@ shape = SubResource("SegmentShape2D_fclsm")
 [node name="Props" type="Node2D" parent="." unique_id=271831654]
 
 [node name="Ladder" parent="Props" unique_id=1721619138 instance=ExtResource("3_oce1q")]
-position = Vector2(-328, 128)
+position = Vector2(-328, 120)
 
 [node name="Platforms" type="Node2D" parent="Props" unique_id=872377628]
 script = ExtResource("3_tghud")
@@ -104,7 +100,6 @@ script = ExtResource("3_tghud")
 position = Vector2(-201, 85)
 collision_layer = 3
 collision_mask = 3
-useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-92, -14, 92, -14, 92, 14, -92, 14)
@@ -116,7 +111,6 @@ shape = SubResource("RectangleShape2D_b72er")
 position = Vector2(167, 21)
 collision_layer = 3
 collision_mask = 3
-useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform2" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-88, -14, 88, -14, 88, 14, -88, 14)
@@ -128,43 +122,39 @@ shape = SubResource("RectangleShape2D_dxatx")
 position = Vector2(-352, -52)
 collision_layer = 3
 collision_mask = 3
-useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform3" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-80, -14, 80, -14, 80, 14, -80, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform3" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_3u2or")
+shape = SubResource("RectangleShape2D_pouej")
 
 [node name="Platform4" parent="Props/Platforms" unique_id=1518900774 instance=ExtResource("3_80iyk")]
 position = Vector2(0, 224)
 collision_layer = 3
 collision_mask = 3
-useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform4" index="0" unique_id=1214519473]
 visible = false
 polygon = PackedVector2Array(-388, -14, 388, -14, 388, 14, -388, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform4" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_wwkd7")
+shape = SubResource("RectangleShape2D_3u2or")
 
 [node name="Platform5" parent="Props/Platforms" unique_id=1155819569 instance=ExtResource("3_80iyk")]
 position = Vector2(-1, 506)
-useBorders = true
 
 [node name="Polygon" parent="Props/Platforms/Platform5" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-284, -14, 284, -14, 284, 14, -284, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform5" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_0ab11")
+shape = SubResource("RectangleShape2D_wwkd7")
 
 [node name="Platform6" parent="Props/Platforms" unique_id=1820862010 instance=ExtResource("3_80iyk")]
 position = Vector2(-116, -493)
-useBorders = true
 
 [node name="CollisionShape" parent="Props/Platforms/Platform6" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_slkj7")
+shape = SubResource("RectangleShape2D_0ab11")
 
 [node name="Platform7" parent="Props/Platforms" unique_id=850538308 instance=ExtResource("3_80iyk")]
 position = Vector2(256, -268)
@@ -174,7 +164,7 @@ useBorders = false
 polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
 
 [node name="CollisionShape" parent="Props/Platforms/Platform7" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_llal4")
+shape = SubResource("RectangleShape2D_slkj7")
 
 [node name="SwingingPlatform" parent="Props" unique_id=641372415 instance=ExtResource("5_x6asr")]
 position = Vector2(-30, -372)
@@ -182,13 +172,12 @@ swing_radius = 240.0
 
 [node name="Platform" parent="Props/SwingingPlatform" index="0" unique_id=1810100926]
 position = Vector2(0, 240)
-useBorders = true
 
 [node name="Polygon" parent="Props/SwingingPlatform/Platform" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-102, -14, 102, -14, 102, 14, -102, 14)
 
 [node name="CollisionShape" parent="Props/SwingingPlatform/Platform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_0ex8g")
+shape = SubResource("RectangleShape2D_llal4")
 
 [node name="LeftLine" parent="Props/SwingingPlatform" index="1" unique_id=701014776]
 points = PackedVector2Array(0, 0, -106, 222)
@@ -226,25 +215,11 @@ texture = ExtResource("7_chv15")
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_x6asr")
 
-[node name="ladder1" type="Area2D" parent="Props" unique_id=1756052258]
-visible = false
-position = Vector2(-328, 128)
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Props/ladder1" unique_id=579401834]
-shape = SubResource("RectangleShape2D_pouej")
-
-[node name="Sprite2D" type="Sprite2D" parent="Props/ladder1" unique_id=1023446760]
-scale = Vector2(0.028260868, 0.06584867)
-texture = ExtResource("8_chv15")
+[node name="Rope" parent="Props" unique_id=202863634 instance=ExtResource("10_oce1q")]
+position = Vector2(-280, -144)
 
 [node name="monster" parent="." unique_id=1608162952 instance=ExtResource("9_fclsm")]
 position = Vector2(-3, 500)
-
-[connection signal="area_entered" from="Props/ladder1" to="Player" method="_on_ladder_1_area_entered"]
-[connection signal="body_entered" from="Props/ladder1" to="Player" method="_on_ladder_1_body_entered"]
-[connection signal="body_exited" from="Props/ladder1" to="Player" method="_on_ladder_1_body_exited"]
 
 [editable path="Props/Platforms/Platform"]
 [editable path="Props/Platforms/Platform2"]
