@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://7fpjlxl4oyji"]
+
+[ext_resource type="PackedScene" uid="uid://ddyhjfbtwirl6" path="res://levels/LevelDirectory/chunks/base/base_chunk.tscn" id="1_74xlh"]
+[ext_resource type="Script" uid="uid://cq0xonqbx1cf3" path="res://levels/LevelDirectory/chunks/base/editor_guide.gd" id="2_ptxqx"]
+[ext_resource type="Script" uid="uid://csbpshquadh5o" path="res://props/platforms/platforms.gd" id="3_j5u87"]
+[ext_resource type="PackedScene" uid="uid://bbjedi8pjw5yl" path="res://props/platforms/grate.tscn" id="4_cu4r4"]
+[ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="5_ty53e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evkaq"]
+resource_local_to_scene = true
+size = Vector2(150, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_627yh"]
+resource_local_to_scene = true
+size = Vector2(144, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4k40"]
+resource_local_to_scene = true
+size = Vector2(570, 36)
+
+[node name="LeftLBlock" unique_id=69217074 instance=ExtResource("1_74xlh")]
+chunk_height = 1080.0
+
+[node name="EditorGuide" type="Polygon2D" parent="." index="0" unique_id=778514721]
+z_index = -100
+color = Color(0.19215687, 0.5921569, 0.8, 0.14901961)
+polygon = PackedVector2Array(720, 0, 720, 1080, 0, 1080, 0, 0)
+script = ExtResource("2_ptxqx")
+
+[node name="BottomCenter" parent="." index="1" unique_id=1004701686]
+position = Vector2(720, 1080)
+
+[node name="Geometry" parent="." index="3" unique_id=1862465642]
+script = ExtResource("3_j5u87")
+
+[node name="BottomLeftGrate" parent="Geometry" index="0" unique_id=1810100926 instance=ExtResource("4_cu4r4")]
+position = Vector2(645, 1062)
+
+[node name="Polygon" parent="Geometry/BottomLeftGrate" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-75, -18, 75, -18, 75, 18, -75, 18)
+
+[node name="CollisionShape" parent="Geometry/BottomLeftGrate" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_evkaq")
+
+[node name="TopLeftPlatform" parent="Geometry" index="1" unique_id=1952376278 instance=ExtResource("5_ty53e")]
+position = Vector2(648, 110)
+useBorders = false
+borderWidth = 0.0
+enableSnap = false
+
+[node name="Polygon" parent="Geometry/TopLeftPlatform" index="0" unique_id=1214519473]
+position = Vector2(0, 82)
+polygon = PackedVector2Array(-72, -18, 72, -18, 72, 18, -72, 18)
+
+[node name="CollisionShape" parent="Geometry/TopLeftPlatform" index="1" unique_id=1909510158]
+position = Vector2(0, 82)
+shape = SubResource("RectangleShape2D_627yh")
+
+[node name="BorderLines" parent="Geometry/TopLeftPlatform" index="2" unique_id=1730009195]
+position = Vector2(0, 82)
+
+[node name="BottomLeftPlatform" parent="Geometry" index="2" unique_id=1229913838 instance=ExtResource("5_ty53e")]
+position = Vector2(285, 1062)
+enableSnap = false
+
+[node name="Polygon" parent="Geometry/BottomLeftPlatform" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-281, -14, 281, -14, 281, 14, -281, 14)
+
+[node name="CollisionShape" parent="Geometry/BottomLeftPlatform" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_f4k40")
+
+[editable path="Geometry/BottomLeftGrate"]
+[editable path="Geometry/TopLeftPlatform"]
+[editable path="Geometry/BottomLeftPlatform"]

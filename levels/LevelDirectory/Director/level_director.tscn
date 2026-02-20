@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b82mhjrk8aagr" path="res://levels/LevelDirectory/chunks/pair_l_block/right/right_l_block_01.tscn" id="3_o3syh"]
 [ext_resource type="PackedScene" uid="uid://c6hdoerwfiamt" path="res://player/player.tscn" id="4_o3syh"]
 [ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="5_wu7qg"]
+[ext_resource type="PackedScene" uid="uid://cykqp540sjmn" path="res://monster/monster.tscn" id="6_ps5x1"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ps5x1"]
 resource_local_to_scene = true
@@ -44,3 +45,6 @@ position = Vector2(-570, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/RightWall" unique_id=867114677]
 shape = SubResource("SegmentShape2D_h4c5a")
+
+[node name="monster" parent="." unique_id=134216610 instance=ExtResource("6_ps5x1")]
+position = Vector2(720, 1080)
