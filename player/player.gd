@@ -18,14 +18,11 @@ var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ON_LADDER = false
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#if state == State.CLIMB:
-		#ladderCtrl(laddderPos)
-	#else:
 		if not is_on_floor():
 			if velocity.y < 0:
 				velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER * 1.3
@@ -35,10 +32,7 @@ func _process(delta: float) -> void:
 		#direction = Input.get_axis("left", "right")
 	#	-1 left +1 right
 		#each thing inside these if and elifs should be their own functions and better written but I was rushed
-		if ON_LADDER and Input.is_action_just_pressed("jump") and state != State.CLIMB:
-			state = State.CLIMB
-			
-		elif Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor():
 			#jump animation is not ideal - it needs separated into jumping up and the actual landing bit or smth
 			velocity += Vector2(0, -JUMP_CONSTANT)
 			state = State.JUMP
@@ -83,7 +77,8 @@ func _falling_to_death() -> void:
 	if state != State.DEAD:
 		state = State.DEAD
 		_update_animations()
-
+		
+#ladder bs starts here
 
 #functions to check if you're on a ladder or not
 #func _on_ladder_1_body_entered(body: Node2D) -> void:

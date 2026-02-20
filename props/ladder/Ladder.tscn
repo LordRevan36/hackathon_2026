@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://fbv68jl8ugae"]
 
+[ext_resource type="Script" uid="uid://dwh6t4xj0t8kr" path="res://props/ladder/ladder.gd" id="1_38d2l"]
 [ext_resource type="Texture2D" uid="uid://bu3a0ewrhb8xn" path="res://assets/placeholder_sprites/COUPON.png" id="1_ity3q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38d2l"]
@@ -10,6 +11,7 @@ size = Vector2(52, 162)
 [node name="ladder" type="Area2D" parent="." unique_id=1009803214]
 collision_layer = 3
 collision_mask = 3
+script = ExtResource("1_38d2l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ladder" unique_id=481175960]
 shape = SubResource("RectangleShape2D_38d2l")
