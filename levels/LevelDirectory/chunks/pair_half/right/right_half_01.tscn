@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://jcji7tc0r56r"]
 
 [ext_resource type="PackedScene" uid="uid://bdjna0mg5w03" path="res://levels/LevelDirectory/chunks/pair_half/right/right_half.tscn" id="1_nmdjp"]
+[ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="2_856ec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmdjp"]
 resource_local_to_scene = true
@@ -10,6 +11,10 @@ size = Vector2(144, 36)
 resource_local_to_scene = true
 size = Vector2(150, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kba2w"]
+resource_local_to_scene = true
+size = Vector2(292, 36)
+
 [node name="RightHalf01" unique_id=69217074 instance=ExtResource("1_nmdjp")]
 
 [node name="CollisionShape" parent="Geometry/TopRightPlatform" parent_id_path=PackedInt32Array(1952376278) index="1" unique_id=1909510158]
@@ -18,5 +23,12 @@ shape = SubResource("RectangleShape2D_nmdjp")
 [node name="CollisionShape" parent="Geometry/BottomLeftGrate" parent_id_path=PackedInt32Array(1810100926) index="1" unique_id=1909510158]
 shape = SubResource("RectangleShape2D_856ec")
 
+[node name="Platform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="2" unique_id=1810100926 instance=ExtResource("2_856ec")]
+position = Vector2(1109, 620)
+
+[node name="CollisionShape" parent="Geometry/Platform" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_kba2w")
+
 [editable path="Geometry/TopRightPlatform"]
 [editable path="Geometry/BottomLeftGrate"]
+[editable path="Geometry/Platform"]

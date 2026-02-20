@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var chunk_height : float = 900.0
+@export var chunk_height : float = 1080.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
