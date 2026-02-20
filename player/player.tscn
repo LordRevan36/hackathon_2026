@@ -326,6 +326,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_boad6"]
+radius = 24.0
+height = 90.0
+
 [node name="Player" type="CharacterBody2D" unique_id=58500348]
 script = ExtResource("1_oul6g")
 
@@ -338,3 +342,9 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
 animation = &"jump"
 autoplay = "idle"
+
+[node name="playerTrigger" type="Area2D" parent="." unique_id=1708217132]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playerTrigger" unique_id=1975600793]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_boad6")
