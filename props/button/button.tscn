@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bwv7bf804egto"]
+
+[ext_resource type="Script" uid="uid://06fqumaf8ff1" path="res://props/button/button_1.gd" id="1_du14w"]
+[ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="2_6cxep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1c21"]
+size = Vector2(130, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg04q"]
+size = Vector2(128, 10)
+
+[node name="Button" type="Node2D" unique_id=1368852690]
+
+[node name="button" type="StaticBody2D" parent="." unique_id=1838349673]
+script = ExtResource("1_du14w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="button" unique_id=1562383998]
+shape = SubResource("RectangleShape2D_h1c21")
+
+[node name="Sprite2D" type="Sprite2D" parent="button" unique_id=1044498206]
+position = Vector2(0, 1.9999981)
+scale = Vector2(1, 0.09374991)
+texture = ExtResource("2_6cxep")
+
+[node name="pressedCheck" type="CollisionShape2D" parent="button" unique_id=583843928]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_mg04q")

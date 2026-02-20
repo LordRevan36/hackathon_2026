@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://burgldlh2lryq"]
+
+[ext_resource type="Script" uid="uid://ctcr2vjb166dn" path="res://props/box/boxBody.gd" id="1_ag0s5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwqdt"]
+size = Vector2(48, 48)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_h0glm"]
+
+[node name="Box" type="Node2D" unique_id=1120624714]
+
+[node name="Box" type="RigidBody2D" parent="." unique_id=989082987]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_ag0s5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1753565296]
+shape = SubResource("RectangleShape2D_kwqdt")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=2081517384]
+position = Vector2(-5.722046e-06, 0)
+scale = Vector2(48.00002, 48.000004)
+texture = SubResource("PlaceholderTexture2D_h0glm")

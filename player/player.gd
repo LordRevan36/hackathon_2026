@@ -10,87 +10,60 @@ class_name Player
 @export var AIR_ACCEL: float = 1000.0 # How fast you change direction in the air
 @export var AIR_FRICTION: float = 100.0 # How fast you slow down when you let go in the air
 
-enum State {IDLE, JUMP, FALL, LAND, WALK, RUN, DEAD}
+enum State {IDLE, JUMP, LAND, WALK, RUN, CLIMB}
 
 var state : State = State.IDLE
 var direction
-var ON_LADDER : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	global_player.fellToDeath.connect(_falling_to_death)
+	ON_LADDER = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	print(player_sprite.animation)
-	if state == State.DEAD:
-		_apply_gravity(delta)
-		velocity.x = move_toward(velocity.x, 0, AIR_FRICTION * delta)
-		move_and_slide()
-		return
-	
-	_apply_gravity(delta)
-	
-	_handle_movement(delta)
-	_handle_jump()
-	
-	move_and_slide()
-	
-	_update_states()
-	
-
-func _handle_movement(delta: float) -> void:
-	var direction = Input.get_axis("left","right")
-	#-1 = left, +1 = right, 0 = neither
-	if direction != 0:
-		player_sprite.flip_h = direction < 0
-	if is_on_floor():
-		velocity.x = direction * RUN_CONSTANT
+func _process(delta: float) -> void:
+	if state == State.CLIMB:
+		ladderCtrl(ladderPos)
 	else:
-		if direction != 0:
-			var target_speed = RUN_CONSTANT * direction
-			#slowed by friction if trying to move in same direction as current
-			if abs(velocity.x) > RUN_CONSTANT and sign(velocity.x) == sign (direction):
-				velocity.x = move_toward(velocity.x, target_speed, AIR_FRICTION * delta)
-			#player pushes themself in direction they want
+		if not is_on_floor():
+			if velocity.y < 0:
+				velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER * 1.3
 			else:
-				velocity.x = move_toward(velocity.x, target_speed, AIR_ACCEL * delta)
-		#player slows toward zero by friction if not pressing
-		else:
-			velocity.x = move_toward(velocity.x, 0, AIR_FRICTION * delta)
-
-func _handle_jump() -> void:
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = -JUMP_CONSTANT
-		
-		var collision = get_last_slide_collision()
-		if collision:
-			var collider = collision.get_collider()
-			if collider and collider.get_parent().is_in_group("swinging_platform"):
-				var inherited_momentum = collider.get_parent()._get_swing_velocity()
-				velocity += inherited_momentum
-
-func _update_states() -> void:
-	var previous_state = state
-	if previous_state == State.DEAD:
-		return
-	if not is_on_floor():
-		if velocity.y < 0:
+				velocity += get_gravity() * delta * global_constants.GRAVITY_MULTIPLIER
+				
+		#direction = Input.get_axis("left", "right")
+	#	-1 left +1 right
+		#each thing inside these if and elifs should be their own functions and better written but I was rushed
+		if ON_LADDER and Input.is_action_just_pressed("jump") and state != State.CLIMB:
+			state = State.CLIMB
+			
+		elif Input.is_action_just_pressed("jump") and is_on_floor():
+			#jump animation is not ideal - it needs separated into jumping up and the actual landing bit or smth
+			velocity += Vector2(0, -JUMP_CONSTANT)
 			state = State.JUMP
-		else:
-			state = State.FALL
-	elif velocity.x != 0:
-		state = State.RUN
-	else:
-		state = State.IDLE
-	if state != previous_state:
-		_update_animations()
-
-func _apply_gravity(delta: float) -> void:
-	if not is_on_floor():
-		var player_gravity_multiplier = 1.3 if velocity.y < 0 else 1.0
-		velocity.y += get_gravity().y * delta * global_constants.GRAVITY_MULTIPLIER * player_gravity_multiplier
+			_update_animations()
+		elif is_on_floor() and state == State.JUMP:
+			#state = State.LAND - this wouldn't do anything atm but have it here in case
+			global_player.landed.emit()
+			state = State.IDLE
+			_update_animations()
+		elif (Input.is_action_pressed("left") or Input.is_action_pressed("right")):
+			direction = Input.get_axis("left", "right")
+			if is_on_floor():
+				state = State.RUN
+				_update_animations()
+			else:
+				player_sprite.flip_h = direction < 0
+			#velocity.x = move_toward(velocity.x, 0, direction * RUN_CONSTANT) 
+			velocity.x = direction * RUN_CONSTANT
+			
+		elif not Input.is_anything_pressed() and state != State.JUMP:
+			state = State.IDLE
+			_update_animations()
+		
+		if state == State.IDLE:
+			velocity.x = 0
+		move_and_slide()
 
 func _update_animations() -> void:
 	match state:
@@ -111,6 +84,21 @@ func _falling_to_death() -> void:
 		_update_animations()
 
 func _on_ladder_1_area_entered(area: Area2D) -> void:
+#functions to check if you're on a ladder or not
+func _on_ladder_1_body_entered(body: Node2D) -> void:
 	ON_LADDER = true
-func _on_ladder_1_area_exited(area:Area2D) -> void:
+	print("debug on")
+func _on_ladder_1_body_exited(body: Node2D) -> void:
 	ON_LADDER = false
+	print("debug off")
+func ladderCtrl(ladderPos: int) -> bool:
+	position.x = ladderPos
+	velocity.y = 0
+	if Input.is_action_just_pressed("jump"):
+		position.y += -20
+		return(true)
+	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right") or !ON_LADDER:
+		state = State.IDLE
+		return(false)
+	else:
+		return(true)
