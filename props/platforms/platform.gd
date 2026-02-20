@@ -9,8 +9,7 @@ class_name platform
 @export var useBorders : bool = true
 @export var borderTexture : Texture
 @export var borderWidth : float
-#@export var bodyTexture : Texture
-#@export var textureScale : Vector2 = Vector2(1, 1)
+@export var bodyTexture : Texture
 @export var enableSnap : bool = true
 @export var centerRect : bool = false
 
