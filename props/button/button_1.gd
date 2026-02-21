@@ -8,6 +8,9 @@ enum State{ACTIVE, INACTIVE}
 var state: State = State.INACTIVE
 var bodies_on_button : int = 0
 
+signal active
+signal inactive
+
 func _ready() -> void:
 	state = State.INACTIVE
 	_update_animation()
@@ -27,8 +30,10 @@ func _update_animation() -> void:
 func _update_state():
 	if bodies_on_button == 0:
 		state = State.INACTIVE
+		inactive.emit()
 	else:
 		state = State.ACTIVE
+		active.emit()
 	_update_animation()
 
 func _on_body_entered(body: Node2D) -> void:

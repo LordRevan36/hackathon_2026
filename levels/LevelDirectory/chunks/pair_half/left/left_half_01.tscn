@@ -6,51 +6,36 @@
 [ext_resource type="PackedScene" uid="uid://bwv7bf804egto" path="res://props/button/button.tscn" id="4_4tecf"]
 [ext_resource type="PackedScene" uid="uid://burgldlh2lryq" path="res://props/box/box.tscn" id="5_d5s8k"]
 [ext_resource type="PackedScene" uid="uid://batlbia6gpmsr" path="res://props/wires/wire.tscn" id="6_sq30g"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5s8k"]
-resource_local_to_scene = true
-size = Vector2(150, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq30g"]
-resource_local_to_scene = true
-size = Vector2(144, 36)
+[ext_resource type="PackedScene" uid="uid://bnxccdjidlvxv" path="res://props/platforms/elevator.tscn" id="7_unui0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_unui0"]
 resource_local_to_scene = true
-size = Vector2(570, 36)
+size = Vector2(150, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6dt1p"]
 resource_local_to_scene = true
-size = Vector2(196, 36)
+size = Vector2(144, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmr8q"]
 resource_local_to_scene = true
-size = Vector2(136, 36)
+size = Vector2(570, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_py6xc"]
 resource_local_to_scene = true
-size = Vector2(164, 36)
+size = Vector2(196, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s6auj"]
 resource_local_to_scene = true
-size = Vector2(140, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4kpb"]
-resource_local_to_scene = true
-size = Vector2(160, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7c74"]
-resource_local_to_scene = true
 size = Vector2(204, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1rxt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4kpb"]
 resource_local_to_scene = true
 size = Vector2(228, 36)
 
 [node name="LeftHalf01" unique_id=69217074 instance=ExtResource("1_3n1r0")]
 
 [node name="CollisionShape" parent="Geometry/BottomLeftGrate" parent_id_path=PackedInt32Array(1810100926) index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_d5s8k")
+shape = SubResource("RectangleShape2D_unui0")
 
 [node name="TopLeftPlatform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="1" unique_id=1952376278]
 position = Vector2(648, 192)
@@ -60,13 +45,13 @@ position = Vector2(0, 0)
 
 [node name="CollisionShape" parent="Geometry/TopLeftPlatform" index="1" unique_id=1909510158]
 position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_sq30g")
+shape = SubResource("RectangleShape2D_6dt1p")
 
 [node name="BorderLines" parent="Geometry/TopLeftPlatform" index="2" unique_id=1730009195]
 position = Vector2(0, 0)
 
 [node name="CollisionShape" parent="Geometry/BottomLeftPlatform" parent_id_path=PackedInt32Array(1229913838) index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_unui0")
+shape = SubResource("RectangleShape2D_wmr8q")
 
 [node name="Platform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="3" unique_id=1100598372 instance=ExtResource("2_jhrrx")]
 position = Vector2(380, 768)
@@ -75,45 +60,9 @@ position = Vector2(380, 768)
 polygon = PackedVector2Array(-94, -14, 94, -14, 94, 14, -94, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_6dt1p")
-
-[node name="Platform2" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="4" unique_id=1537640730 instance=ExtResource("2_jhrrx")]
-position = Vector2(112, 648)
-
-[node name="Polygon" parent="Geometry/Platform2" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-64, -14, 64, -14, 64, 14, -64, 14)
-
-[node name="CollisionShape" parent="Geometry/Platform2" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_wmr8q")
-
-[node name="Platform3" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="5" unique_id=1812409886 instance=ExtResource("2_jhrrx")]
-position = Vector2(251, 484)
-
-[node name="Polygon" parent="Geometry/Platform3" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-78, -14, 78, -14, 78, 14, -78, 14)
-
-[node name="CollisionShape" parent="Geometry/Platform3" index="1" unique_id=1909510158]
 shape = SubResource("RectangleShape2D_py6xc")
 
-[node name="Platform4" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="6" unique_id=2043162368 instance=ExtResource("2_jhrrx")]
-position = Vector2(92, 308)
-
-[node name="Polygon" parent="Geometry/Platform4" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-66, -14, 66, -14, 66, 14, -66, 14)
-
-[node name="CollisionShape" parent="Geometry/Platform4" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_s6auj")
-
-[node name="Platform5" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="7" unique_id=1983250654 instance=ExtResource("2_jhrrx")]
-position = Vector2(252, 172)
-
-[node name="Polygon" parent="Geometry/Platform5" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-76, -14, 76, -14, 76, 14, -76, 14)
-
-[node name="CollisionShape" parent="Geometry/Platform5" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_s4kpb")
-
-[node name="Platform6" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="8" unique_id=758663410 instance=ExtResource("2_jhrrx")]
+[node name="Platform6" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="4" unique_id=758663410 instance=ExtResource("2_jhrrx")]
 position = Vector2(474, 192)
 useBorders = false
 borderWidth = 0.0
@@ -123,9 +72,9 @@ enableSnap = false
 polygon = PackedVector2Array(-102, -18, 102, -18, 102, 18, -102, 18)
 
 [node name="CollisionShape" parent="Geometry/Platform6" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_x7c74")
+shape = SubResource("RectangleShape2D_s6auj")
 
-[node name="Platform7" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="9" unique_id=1810100926 instance=ExtResource("2_jhrrx")]
+[node name="Platform7" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="5" unique_id=1810100926 instance=ExtResource("2_jhrrx")]
 position = Vector2(152, 898)
 
 [node name="Polygon" parent="Geometry/Platform7" index="0" unique_id=1214519473]
@@ -136,7 +85,7 @@ polygon = PackedVector2Array(-110, -14, 110, -14, 110, 14, -110, 14)
 [node name="CollisionShape" parent="Geometry/Platform7" index="1" unique_id=1909510158]
 rotation = 0.39618975
 scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_c1rxt")
+shape = SubResource("RectangleShape2D_s4kpb")
 
 [node name="BorderLines" parent="Geometry/Platform7" index="2" unique_id=1730009195]
 rotation = 0.39618972
@@ -155,13 +104,16 @@ position = Vector2(323, 717)
 position = Vector2(395, 1055)
 points = PackedVector2Array(0, 0, -380, 0, -380, -405, -340, -405)
 
+[node name="Elevator" parent="Props" parent_id_path=PackedInt32Array(1442607) index="5" unique_id=669589747 instance=ExtResource("7_unui0")]
+position = Vector2(118, 651)
+travel_distance = Vector2(0, -500)
+
+[connection signal="active" from="Props/button" to="Props/Elevator" method="_set_button_active"]
+[connection signal="inactive" from="Props/button" to="Props/Elevator" method="_set_button_inactive"]
+
 [editable path="Geometry/BottomLeftGrate"]
 [editable path="Geometry/TopLeftPlatform"]
 [editable path="Geometry/BottomLeftPlatform"]
 [editable path="Geometry/Platform"]
-[editable path="Geometry/Platform2"]
-[editable path="Geometry/Platform3"]
-[editable path="Geometry/Platform4"]
-[editable path="Geometry/Platform5"]
 [editable path="Geometry/Platform6"]
 [editable path="Geometry/Platform7"]
