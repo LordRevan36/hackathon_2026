@@ -346,7 +346,7 @@ shape = SubResource("CapsuleShape2D_oul6g")
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1032938156]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_g1dw6")
-animation = &"fall"
+animation = &"climb"
 autoplay = "idle"
 
 [node name="playerTrigger" type="Area2D" parent="." unique_id=1708217132]

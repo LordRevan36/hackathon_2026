@@ -8,7 +8,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5s8k"]
 resource_local_to_scene = true
-size = Vector2(300, 36)
+size = Vector2(150, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq30g"]
 resource_local_to_scene = true
@@ -46,10 +46,11 @@ size = Vector2(204, 36)
 resource_local_to_scene = true
 size = Vector2(228, 36)
 
-[node name="LeftLBlock01" unique_id=69217074 instance=ExtResource("1_3n1r0")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5u074"]
+resource_local_to_scene = true
+size = Vector2(50, 175)
 
-[node name="Polygon" parent="Geometry/BottomLeftGrate" parent_id_path=PackedInt32Array(1810100926) index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-150, -18, 150, -18, 150, 18, -150, 18)
+[node name="LeftLBlock01" unique_id=69217074 instance=ExtResource("1_3n1r0")]
 
 [node name="CollisionShape" parent="Geometry/BottomLeftGrate" parent_id_path=PackedInt32Array(1810100926) index="1" unique_id=1909510158]
 shape = SubResource("RectangleShape2D_d5s8k")
@@ -153,6 +154,9 @@ position = Vector2(426, 1044)
 [node name="Box" parent="Props" parent_id_path=PackedInt32Array(1442607) index="2" unique_id=1120624714 instance=ExtResource("5_d5s8k")]
 position = Vector2(323, 717)
 
+[node name="CollisionShape2D" parent="Props/ladder" parent_id_path=PackedInt32Array(1009803214) index="0" unique_id=481175960]
+shape = SubResource("RectangleShape2D_5u074")
+
 [editable path="Geometry/BottomLeftGrate"]
 [editable path="Geometry/TopLeftPlatform"]
 [editable path="Geometry/BottomLeftPlatform"]
@@ -163,3 +167,4 @@ position = Vector2(323, 717)
 [editable path="Geometry/Platform5"]
 [editable path="Geometry/Platform6"]
 [editable path="Geometry/Platform7"]
+[editable path="Props/ladder"]

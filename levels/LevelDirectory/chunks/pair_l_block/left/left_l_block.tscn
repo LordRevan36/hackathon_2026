@@ -19,7 +19,6 @@ resource_local_to_scene = true
 size = Vector2(570, 36)
 
 [node name="LeftLBlock" unique_id=69217074 instance=ExtResource("1_bmrti")]
-chunk_height = 1080.0
 
 [node name="EditorGuide" type="Polygon2D" parent="." index="0" unique_id=778514721]
 z_index = -100

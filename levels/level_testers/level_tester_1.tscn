@@ -28,7 +28,6 @@ position = Vector2(720, 900)
 [node name="Camera" type="Camera2D" parent="." unique_id=358795651]
 position = Vector2(720, 800)
 script = ExtResource("4_53326")
-pauseScroll = true
 
 [node name="LeftWall" type="StaticBody2D" parent="Camera" unique_id=1551953702]
 position = Vector2(541, 0)

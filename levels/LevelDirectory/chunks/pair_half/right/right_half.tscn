@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="4_xx4km"]
 [ext_resource type="PackedScene" uid="uid://bbjedi8pjw5yl" path="res://props/platforms/grate.tscn" id="5_o6x56"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqiu5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6x56"]
 resource_local_to_scene = true
 size = Vector2(144, 36)
 
@@ -38,7 +38,7 @@ enableSnap = false
 polygon = PackedVector2Array(-72, -18, 72, -18, 72, 18, -72, 18)
 
 [node name="CollisionShape" parent="Geometry/TopRightPlatform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_aqiu5")
+shape = SubResource("RectangleShape2D_o6x56")
 
 [node name="BottomLeftGrate" parent="Geometry" index="1" unique_id=1810100926 instance=ExtResource("5_o6x56")]
 position = Vector2(795, 1062)

@@ -12,18 +12,22 @@ class_name Player
 @export var AIR_ACCEL: float = 1000.0 # How fast you change direction in the air
 @export var AIR_FRICTION: float = 100.0 # How fast you slow down when you let go in the air
 @export var PUSH_FORCE: float = 20.0 #how hard you push boxes
+@export var CLIMB_CONSTANT: float = 200.0
 
 enum State {IDLE, JUMP, LAND, WALK, RUN, CLIMB, FALL, DEAD}
 
 var ON_LADDER = false
 var state : State = State.IDLE
 var direction
+var contact_ladder : Node2D
+var near_ladder : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	global_player.fellToDeath.connect(_falling_to_death)
-	global_player.climbEntr.connect(ladderCtrl)
-
+	#global_player.climbEntr.connect(ladderCtrl)
+	global_player.climbEntr.connect(_ladder_control)
+	global_player.climbLeave.connect(_ladder_leave)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -32,14 +36,15 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, AIR_FRICTION * delta)
 		move_and_slide()
 		return
-	
-	_apply_gravity(delta)
-	
-	_handle_movement(delta)
-	_handle_jump()
+	if state != State.CLIMB:
+		_apply_gravity(delta)
+		_handle_movement(delta)
+		_check_ladder_climb()
+		_handle_jump()
+	else:
+		_handle_climb()
 	
 	move_and_slide()
-	
 	_handle_boxes()
 	
 	_update_states()
@@ -81,7 +86,6 @@ func _handle_spring_pad(area: Area2D) -> void:
 func _handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -JUMP_CONSTANT
-		
 		var collision = get_last_slide_collision()
 		if collision:
 			var collider = collision.get_collider()
@@ -101,7 +105,7 @@ func _handle_boxes() -> void:
 
 func _update_states() -> void:
 	var previous_state = state
-	if previous_state == State.DEAD:
+	if previous_state == State.DEAD or previous_state == State.CLIMB:
 		return
 	if not is_on_floor():
 		if velocity.y < 0:
@@ -127,29 +131,66 @@ func _update_animations() -> void:
 			player_sprite.play("fall")
 		State.DEAD:
 			player_sprite.play("death")
+		State.CLIMB:
+			player_sprite.play("climb")
 
 func _falling_to_death() -> void:
 	if state != State.DEAD:
 		state = State.DEAD
 		_update_animations()
-		
-#ladder bs starts here
 
-#functions to check if you're on a ladder or not
-#func _on_ladder_1_body_entered(body: Node2D) -> void:
-	#ON_LADDER = true
-	#print("debug on")
-#func _on_ladder_1_body_exited(body: Node2D) -> void:
-	#ON_LADDER = false
-	#print("debug off")
-func ladderCtrl(ladderPos: int) -> bool:
-	position.x = ladderPos
-	velocity.y = 0
+func _ladder_control(ladder_object : Node2D) -> void:
+	contact_ladder = ladder_object
+	near_ladder = true
+
+func _ladder_leave(ladder_object : Node2D) -> void:
+	if contact_ladder == ladder_object:
+		contact_ladder = null
+		near_ladder = false
+
+func _handle_climb() -> void:
+	if not near_ladder:
+		state = State.FALL
+		return
 	if Input.is_action_just_pressed("jump"):
-		position.y += -20
-		return(true)
-	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right") or !ON_LADDER:
-		state = State.IDLE
-		return(false)
+		state = State.JUMP
+		_handle_jump()
+		return
+	if Input.is_action_pressed("up"):
+		velocity.y = -CLIMB_CONSTANT
+	elif Input.is_action_pressed("down"):
+		velocity.y = CLIMB_CONSTANT
 	else:
-		return(true)
+		velocity.y = 0
+
+func _check_ladder_climb() -> void:
+	if Input.is_action_pressed("down") or Input.is_action_pressed("up"):
+		if near_ladder:
+			if state != State.CLIMB:
+				state = State.CLIMB
+				global_position.x = contact_ladder.global_position.x
+				velocity.x = 0.0
+				_update_animations()
+
+
+
+##ladder bs starts here
+#
+##functions to check if you're on a ladder or not
+##func _on_ladder_1_body_entered(body: Node2D) -> void:
+	##ON_LADDER = true
+	##print("debug on")
+##func _on_ladder_1_body_exited(body: Node2D) -> void:
+	##ON_LADDER = false
+	##print("debug off")
+#func ladderCtrl(ladderPos: int) -> bool:
+	#position.x = ladderPos
+	#velocity.y = 0
+	#if Input.is_action_just_pressed("jump"):
+		#position.y += -20
+		#return(true)
+	#elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right") or !ON_LADDER:
+		#state = State.IDLE
+		#return(false)
+	#else:
+		#return(true)
