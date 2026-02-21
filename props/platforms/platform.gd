@@ -1,5 +1,5 @@
 @tool
-extends Node2D
+extends StaticBody2D
 class_name platform
 
 @onready var collision_shape = $CollisionShape

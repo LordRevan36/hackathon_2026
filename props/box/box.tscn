@@ -1,22 +1,21 @@
 [gd_scene format=3 uid="uid://burgldlh2lryq"]
 
-[ext_resource type="Script" uid="uid://ctcr2vjb166dn" path="res://props/box/boxBody.gd" id="1_ag0s5"]
+[ext_resource type="Script" uid="uid://kbox4sfybord" path="res://props/box/box.gd" id="1_kwqdt"]
 [ext_resource type="Texture2D" uid="uid://dmn1adtm3p037" path="res://assets/crate.png" id="2_kwqdt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kwqdt"]
 size = Vector2(48, 48)
 
-[node name="Box" type="Node2D" unique_id=1120624714]
+[node name="Box" type="RigidBody2D" unique_id=989082987 groups=["box"]]
+script = ExtResource("1_kwqdt")
 
-[node name="Box" type="RigidBody2D" parent="." unique_id=989082987 groups=["box"]]
-collision_layer = 2
-collision_mask = 2
-script = ExtResource("1_ag0s5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box" unique_id=1753565296]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1753565296]
 shape = SubResource("RectangleShape2D_kwqdt")
 
-[node name="Sprite2D" type="Sprite2D" parent="Box" unique_id=2081517384]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2081517384]
 position = Vector2(-5.722046e-06, 0)
 scale = Vector2(0.15985188, 0.15952583)
 texture = ExtResource("2_kwqdt")
+
+[node name="FloorCheck" type="RayCast2D" parent="." unique_id=1683061349]
+target_position = Vector2(0, 40)

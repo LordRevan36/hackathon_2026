@@ -11,6 +11,7 @@ class_name Player
 @export var RUN_CONSTANT = 250.0
 @export var AIR_ACCEL: float = 1000.0 # How fast you change direction in the air
 @export var AIR_FRICTION: float = 100.0 # How fast you slow down when you let go in the air
+@export var PUSH_FORCE: float = 20.0 #how hard you push boxes
 
 enum State {IDLE, JUMP, LAND, WALK, RUN, CLIMB, FALL, DEAD}
 
@@ -38,6 +39,8 @@ func _physics_process(delta: float) -> void:
 	_handle_jump()
 	
 	move_and_slide()
+	
+	_handle_boxes()
 	
 	_update_states()
 
@@ -86,6 +89,15 @@ func _handle_jump() -> void:
 				var inherited_momentum = collider.get_parent()._get_swing_velocity()
 				inherited_momentum.x /= 2
 				velocity += inherited_momentum
+
+func _handle_boxes() -> void:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is RigidBody2D and collider.is_in_group("box"):
+			var hit_normal = collision.get_normal()
+			if abs(hit_normal.x) > 0.5:
+				collider.apply_central_impulse(-hit_normal * PUSH_FORCE)
 
 func _update_states() -> void:
 	var previous_state = state
