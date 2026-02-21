@@ -28,6 +28,7 @@ func _ready() -> void:
 	#global_player.climbEntr.connect(ladderCtrl)
 	global_player.climbEntr.connect(_ladder_control)
 	global_player.climbLeave.connect(_ladder_leave)
+	global_player.monsterGotPlayer.connect(_set_death)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -174,7 +175,10 @@ func _check_ladder_climb() -> void:
 				velocity.x = 0.0
 				_update_animations()
 
-
+func _set_death() -> void:
+	if state != State.DEAD:
+		state = State.DEAD
+		_update_animations()
 
 ##ladder bs starts here
 #

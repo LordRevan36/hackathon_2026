@@ -1,5 +1,6 @@
 extends Area2D
 
+
 #@export var SPRING_CONSTANT : float = 1.5
 @export var MAX_JUMP_OUTPUT : float = 900.0
 

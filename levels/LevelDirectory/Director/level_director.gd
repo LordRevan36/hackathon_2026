@@ -19,6 +19,9 @@ enum SetupType { L_BLOCKS, HALVES }
 # Node references
 @onready var start_point = $GenerationStartPoint
 @onready var environment = $Environment
+@onready var game_over_label = $Camera/ScreenFader/GameOver
+@onready var title_label = $Camera/ScreenFader/Title
+@onready var end_background = $EndBackground
 
 const SPAWN_DISTANCE = 2000.0 #distance away to spawn new stages and delete old ones
 const MONSTER_AVOID_DIST = 500.0 #lose if monster ever above you and within 500px distance of you
@@ -29,6 +32,7 @@ var highest_generated_stage: int = -1
 var start_y: float
 var next_spawn_y: float
 var last_setup_type: int = -1
+var is_game_over : bool = false
 
 func _ready() -> void:
 	randomize() # Ensures truly random seed every game
@@ -41,14 +45,18 @@ func _process(delta: float) -> void:
 		return
 	#var distance_climbed = start_y - player.global_position.y
 	_check_and_update_chunks()
-	_check_for_game_over()
+	if not is_game_over:
+		_check_for_game_over()
+
 
 func _check_for_game_over() -> void:
 	if player.position.y > monster.position.y:
 		if player.position.y > monster.position.y + MONSTER_Y_GAP or player.position.distance_to(monster.position) < MONSTER_AVOID_DIST:
 			global_player.monsterGotPlayer.emit()
-			monster.jump_to_target(player)
-			monster._disable_timers()
+			monster._trigger_endgame_pounce(player)
+			is_game_over = true
+			game_over_label.visible = true
+			title_label.visible = true
 
 
 func _get_random_stage_pair() -> Dictionary:

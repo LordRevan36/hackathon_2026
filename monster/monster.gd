@@ -109,9 +109,17 @@ func _reset() -> void:
 	jump_timer.start()
 	velocity = Vector2.ZERO
 
-func _disable_timers() -> void:
+# Call this function when your endgame condition is met!
+func _trigger_endgame_pounce(player_node: Node2D) -> void:
 	jump_timer.stop()
 	active_timer.stop()
+	
+	var time_needed = jump_to_target(player_node)
+	
+	if time_needed > 0.0:
+		active_timer.wait_time = time_needed
+		active_timer.one_shot = true
+		active_timer.start()
 
 func _on_active_timer_timeout() -> void:
 	_reset()

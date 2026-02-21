@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://gt4etp6m350u" path="res://assets/background.jpg" id="10_5pedl"]
 [ext_resource type="Texture2D" uid="uid://dh8dblg3xrqly" path="res://assets/night_layer.png" id="11_5pedl"]
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="13_paefd"]
+[ext_resource type="Script" uid="uid://h78i8mam1ewv" path="res://levels/LevelDirectory/Director/screen_fader.gd" id="16_x5dc7"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ps5x1"]
 resource_local_to_scene = true
@@ -25,6 +26,14 @@ b = Vector2(0, 800)
 resource_local_to_scene = true
 a = Vector2(0, -800)
 b = Vector2(0, 800)
+
+[sub_resource type="SystemFont" id="SystemFont_5pedl"]
+font_names = PackedStringArray("Chalkduster")
+
+[sub_resource type="LabelSettings" id="LabelSettings_x5dc7"]
+font = SubResource("SystemFont_5pedl")
+font_size = 120
+font_color = Color(1, 0, 0, 1)
 
 [node name="LevelDirector" type="Node2D" unique_id=1109521146 node_paths=PackedStringArray("player", "monster")]
 script = ExtResource("1_wi2u4")
@@ -177,6 +186,34 @@ position = Vector2(-570, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/RightWall" unique_id=867114677]
 shape = SubResource("SegmentShape2D_h4c5a")
+
+[node name="ScreenFader" type="CanvasLayer" parent="Camera" unique_id=2021201169]
+layer = 100
+script = ExtResource("16_x5dc7")
+
+[node name="ColorRect" type="ColorRect" parent="Camera/ScreenFader" unique_id=159424128]
+visible = false
+offset_right = 1454.0
+offset_bottom = 1397.0
+color = Color(0, 0, 0, 1)
+
+[node name="GameOver" type="Label" parent="Camera/ScreenFader" unique_id=1759333270]
+visible = false
+offset_left = 296.0
+offset_top = 548.0
+offset_right = 1117.0
+offset_bottom = 700.0
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_x5dc7")
+
+[node name="Title" type="Label" parent="Camera/ScreenFader" unique_id=1656507395]
+visible = false
+offset_left = 101.0
+offset_top = 236.0
+offset_right = 1318.0
+offset_bottom = 388.0
+text = "THE BEAST BELOW"
+label_settings = SubResource("LabelSettings_x5dc7")
 
 [node name="Platform" parent="." unique_id=1810100926 instance=ExtResource("13_paefd")]
 position = Vector2(723, 1458)
