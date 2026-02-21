@@ -354,3 +354,5 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerTrigger" unique_id=1975600793]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_boad6")
+
+[connection signal="area_entered" from="playerTrigger" to="." method="_on_player_trigger_area_entered"]

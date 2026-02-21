@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bdjudp3s8q13d"]
+
+[ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="1_8h5mb"]
+[ext_resource type="Script" uid="uid://bikyfxqsdc0vu" path="res://props/spring_pad/spring_pad.gd" id="1_31ewv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtkgc"]
+size = Vector2(72, 13)
+
+[node name="SpringPad" type="Area2D" unique_id=1878219331 groups=["spring_pad"]]
+script = ExtResource("1_31ewv")
+
+[node name="SpringSprite" type="Sprite2D" parent="." unique_id=463214812]
+position = Vector2(1.9073486e-06, 1.66893e-06)
+scale = Vector2(0.563, 0.1)
+texture = ExtResource("1_8h5mb")
+
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=530673503]
+shape = SubResource("RectangleShape2D_gtkgc")

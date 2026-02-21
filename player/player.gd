@@ -4,6 +4,8 @@ class_name Player
 #do this for any child nodes you want to call - makes it so that if the tree organization changes, the node call can be easily updated
 @onready var player_sprite = $PlayerSprite
 @onready var player_hitbox = $PlayerHitbox
+@onready var player_trigger = $playerTrigger
+@onready var player_trigger_collider = $playerTrigger/CollisionShape2D
 
 @export var JUMP_CONSTANT = 650.0
 @export var RUN_CONSTANT = 250.0
@@ -63,6 +65,15 @@ func _handle_movement(delta: float) -> void:
 		#player slows toward zero by friction if not pressing
 		else:
 			velocity.x = move_toward(velocity.x, 0, AIR_FRICTION * delta)
+
+func _on_player_trigger_area_entered(area: Area2D) -> void:
+	if area.is_in_group("spring_pad"):
+		_handle_spring_pad(area)
+
+func _handle_spring_pad(area: Area2D) -> void:
+	var inherited_momentum = area._get_bounce_velocity(velocity)
+	#velocity.y = -JUMP_CONSTANT
+	velocity = inherited_momentum
 
 func _handle_jump() -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
