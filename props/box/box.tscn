@@ -7,6 +7,8 @@
 size = Vector2(48, 48)
 
 [node name="Box" type="RigidBody2D" unique_id=989082987 groups=["box"]]
+linear_damp_mode = 1
+linear_damp = 5.0
 script = ExtResource("1_kwqdt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1753565296]

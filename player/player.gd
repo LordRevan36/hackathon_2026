@@ -10,7 +10,7 @@ class_name Player
 @export var JUMP_CONSTANT = 650.0
 @export var RUN_CONSTANT = 250.0
 @export var AIR_ACCEL: float = 1000.0 # How fast you change direction in the air
-@export var AIR_FRICTION: float = 100.0 # How fast you slow down when you let go in the air
+@export var AIR_FRICTION: float = 400.0 # How fast you slow down when you let go in the air
 @export var PUSH_FORCE: float = 20.0 #how hard you push boxes
 @export var CLIMB_CONSTANT: float = 200.0
 
