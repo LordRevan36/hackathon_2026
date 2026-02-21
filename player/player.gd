@@ -15,14 +15,16 @@ class_name Player
 
 enum State {IDLE, JUMP, LAND, WALK, RUN, CLIMB, FALL, DEAD}
 
-var ON_LADDER = false
+var canClimb = false
 var state : State = State.IDLE
 var direction
-
+var ladderPos : int
+var typeVal : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	global_player.fellToDeath.connect(_falling_to_death)
-	global_player.climbEntr.connect(ladderCtrl)
+	global_player.climbEntr.connect(onLadder)
+	global_player.climbExit.connect(offLadder)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,6 +33,13 @@ func _physics_process(delta: float) -> void:
 		_apply_gravity(delta)
 		velocity.x = move_toward(velocity.x, 0, AIR_FRICTION * delta)
 		move_and_slide()
+		return
+	elif state == State.CLIMB:
+		ladderCtrl(ladderPos)
+		_update_animations()
+		return
+	elif canClimb and Input.is_action_just_pressed("jump"):
+		state = State.CLIMB
 		return
 	
 	_apply_gravity(delta)
@@ -127,29 +136,43 @@ func _update_animations() -> void:
 			player_sprite.play("fall")
 		State.DEAD:
 			player_sprite.play("death")
+		State.CLIMB:
+			player_sprite.play("climb")
 
 func _falling_to_death() -> void:
 	if state != State.DEAD:
 		state = State.DEAD
 		_update_animations()
-		
+
 #ladder bs starts here
 
-#functions to check if you're on a ladder or not
-#func _on_ladder_1_body_entered(body: Node2D) -> void:
-	#ON_LADDER = true
-	#print("debug on")
-#func _on_ladder_1_body_exited(body: Node2D) -> void:
-	#ON_LADDER = false
-	#print("debug off")
+func onLadder(ladder) -> void:
+	canClimb = true
+	ladderPos = ladder
+func offLadder() -> void:
+	canClimb = false
+	state = State.IDLE
+
 func ladderCtrl(ladderPos: int) -> bool:
 	position.x = ladderPos
 	velocity.y = 0
-	if Input.is_action_just_pressed("jump"):
-		position.y += -20
+	if Input.is_action_pressed("jump"):
+		position.y += -4
 		return(true)
-	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right") or !ON_LADDER:
+	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"):
 		state = State.IDLE
 		return(false)
 	else:
 		return(true)
+
+
+func _on_box_collision_check_body_entered(body: Node2D) -> void:
+	if body.is_in_group("rigidbody"):
+		body.collision_layer = 1
+		body.collision_max = 1
+
+
+func _on_box_collision_check_body_exited(body: Node2D) -> void:
+	if body.is_in_group("rigidbody"):
+		body.collision_layer = 2
+		body.collision_max = 2
