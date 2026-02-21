@@ -12,6 +12,7 @@ enum SetupType { L_BLOCKS, HALVES }
 @export var right_halves: Array[PackedScene]
 
 @export var player: CharacterBody2D
+@export var monster: CharacterBody2D
 #@export var chunk_height: float = 1080.0
 
 
@@ -20,6 +21,8 @@ enum SetupType { L_BLOCKS, HALVES }
 @onready var environment = $Environment
 
 const SPAWN_DISTANCE = 2000.0 #distance away to spawn new stages and delete old ones
+const MONSTER_AVOID_DIST = 500.0 #lose if monster ever above you and within 500px distance of you
+const MONSTER_Y_GAP = 500.0 #lose if ever 500px below monster
 #Tracking stages
 var active_stages: Array[Dictionary] = [] 
 var highest_generated_stage: int = -1
@@ -38,6 +41,15 @@ func _process(delta: float) -> void:
 		return
 	#var distance_climbed = start_y - player.global_position.y
 	_check_and_update_chunks()
+	_check_for_game_over()
+
+func _check_for_game_over() -> void:
+	if player.position.y > monster.position.y:
+		if player.position.y > monster.position.y + MONSTER_Y_GAP or player.position.distance_to(monster.position) < MONSTER_AVOID_DIST:
+			global_player.monsterGotPlayer.emit()
+			monster.jump_to_target(player)
+			monster._disable_timers()
+
 
 func _get_random_stage_pair() -> Dictionary:
 	var available_setups = [SetupType.L_BLOCKS, SetupType.HALVES]

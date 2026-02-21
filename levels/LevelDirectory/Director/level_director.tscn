@@ -11,6 +11,10 @@
 [ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="5_wu7qg"]
 [ext_resource type="PackedScene" uid="uid://cykqp540sjmn" path="res://monster/monster.tscn" id="6_ps5x1"]
 [ext_resource type="PackedScene" uid="uid://2ra75ferdck3" path="res://levels/LevelDirectory/chunks/pair_half/left/left_half_02.tscn" id="7_x1slh"]
+[ext_resource type="PackedScene" uid="uid://wr2gh6iomvfi" path="res://levels/LevelDirectory/chunks/pair_half/right/right_half_02.tscn" id="9_x1slh"]
+[ext_resource type="Texture2D" uid="uid://gt4etp6m350u" path="res://assets/background.jpg" id="10_5pedl"]
+[ext_resource type="Texture2D" uid="uid://dh8dblg3xrqly" path="res://assets/night_layer.png" id="11_5pedl"]
+[ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="13_paefd"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ps5x1"]
 resource_local_to_scene = true
@@ -22,13 +26,134 @@ resource_local_to_scene = true
 a = Vector2(0, -800)
 b = Vector2(0, 800)
 
-[node name="LevelDirector" type="Node2D" unique_id=1109521146 node_paths=PackedStringArray("player")]
+[node name="LevelDirector" type="Node2D" unique_id=1109521146 node_paths=PackedStringArray("player", "monster")]
 script = ExtResource("1_wi2u4")
 left_l_blocks = Array[PackedScene]([ExtResource("2_fpffd"), ExtResource("3_sf7yg")])
 right_l_blocks = Array[PackedScene]([ExtResource("3_o3syh"), ExtResource("5_wixrb")])
 left_halves = Array[PackedScene]([ExtResource("4_wnqd3"), ExtResource("7_x1slh")])
-right_halves = Array[PackedScene]([ExtResource("5_sf7yg")])
+right_halves = Array[PackedScene]([ExtResource("5_sf7yg"), ExtResource("9_x1slh")])
 player = NodePath("Player")
+monster = NodePath("monster")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=1435964603]
+scroll_scale = Vector2(0.25, 0.25)
+
+[node name="Background" type="Sprite2D" parent="Parallax2D" unique_id=1821290890]
+z_index = -100
+position = Vector2(720, 650)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("10_5pedl")
+
+[node name="NightTile" type="Node2D" parent="Parallax2D" unique_id=1105100701]
+metadata/_edit_group_ = true
+
+[node name="Night1" type="Sprite2D" parent="Parallax2D/NightTile" unique_id=187220269]
+position = Vector2(719.5431, -303.75)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_v = true
+
+[node name="Night2" type="Sprite2D" parent="Parallax2D/NightTile" unique_id=888541657]
+position = Vector2(720, -655.99994)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+
+[node name="Night3" type="Sprite2D" parent="Parallax2D/NightTile" unique_id=1281514919]
+position = Vector2(719.54315, -1008.50006)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_h = true
+flip_v = true
+
+[node name="Night4" type="Sprite2D" parent="Parallax2D/NightTile" unique_id=1412236482]
+position = Vector2(720.00006, -1360.75)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_h = true
+
+[node name="NightTile2" type="Node2D" parent="Parallax2D" unique_id=1668684592]
+position = Vector2(1, -1409)
+metadata/_edit_group_ = true
+
+[node name="Night1" type="Sprite2D" parent="Parallax2D/NightTile2" unique_id=528635101]
+position = Vector2(719.5431, -303.75)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_v = true
+
+[node name="Night2" type="Sprite2D" parent="Parallax2D/NightTile2" unique_id=705009954]
+position = Vector2(720, -655.99994)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+
+[node name="Night3" type="Sprite2D" parent="Parallax2D/NightTile2" unique_id=465709272]
+position = Vector2(719.54315, -1008.50006)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_h = true
+flip_v = true
+
+[node name="Night4" type="Sprite2D" parent="Parallax2D/NightTile2" unique_id=806756361]
+position = Vector2(720.00006, -1360.75)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_h = true
+
+[node name="NightTile3" type="Node2D" parent="Parallax2D" unique_id=1542124897]
+position = Vector2(1, -2819)
+metadata/_edit_group_ = true
+
+[node name="Night1" type="Sprite2D" parent="Parallax2D/NightTile3" unique_id=928424330]
+position = Vector2(719.5431, -303.75)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_v = true
+
+[node name="Night2" type="Sprite2D" parent="Parallax2D/NightTile3" unique_id=891254537]
+position = Vector2(720, -655.99994)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+
+[node name="Night3" type="Sprite2D" parent="Parallax2D/NightTile3" unique_id=1293660823]
+position = Vector2(719.54315, -1008.50006)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_h = true
+flip_v = true
+
+[node name="Night4" type="Sprite2D" parent="Parallax2D/NightTile3" unique_id=583844450]
+position = Vector2(720.00006, -1360.75)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_h = true
+
+[node name="NightTile4" type="Node2D" parent="Parallax2D" unique_id=650025960]
+position = Vector2(6, -4228)
+metadata/_edit_group_ = true
+
+[node name="Night1" type="Sprite2D" parent="Parallax2D/NightTile4" unique_id=1943374130]
+position = Vector2(719.5431, -303.75)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_v = true
+
+[node name="Night2" type="Sprite2D" parent="Parallax2D/NightTile4" unique_id=2072747737]
+position = Vector2(720, -655.99994)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+
+[node name="Night3" type="Sprite2D" parent="Parallax2D/NightTile4" unique_id=178009709]
+position = Vector2(719.54315, -1008.50006)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_h = true
+flip_v = true
+
+[node name="Night4" type="Sprite2D" parent="Parallax2D/NightTile4" unique_id=1082351645]
+position = Vector2(720.00006, -1360.75)
+scale = Vector2(2.5359712, 2.5359712)
+texture = ExtResource("11_5pedl")
+flip_h = true
 
 [node name="GenerationStartPoint" type="Marker2D" parent="." unique_id=912439082]
 
@@ -53,5 +178,11 @@ position = Vector2(-570, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera/RightWall" unique_id=867114677]
 shape = SubResource("SegmentShape2D_h4c5a")
 
+[node name="Platform" parent="." unique_id=1810100926 instance=ExtResource("13_paefd")]
+position = Vector2(723, 1458)
+
+[node name="Platform2" parent="." unique_id=486976957 instance=ExtResource("13_paefd")]
+position = Vector2(704, 1206)
+
 [node name="monster" parent="." unique_id=134216610 instance=ExtResource("6_ps5x1")]
-position = Vector2(720, 1080)
+position = Vector2(719, 1459)

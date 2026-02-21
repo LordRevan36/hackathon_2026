@@ -7,3 +7,5 @@ signal fellToDeath
 
 signal climbEntr(ladder) #ladder is the ladder emitting
 signal climbLeave(ladder) #ladder is the ladder emitting
+
+signal monsterGotPlayer()

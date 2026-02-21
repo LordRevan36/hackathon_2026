@@ -109,6 +109,9 @@ func _reset() -> void:
 	jump_timer.start()
 	velocity = Vector2.ZERO
 
+func _disable_timers() -> void:
+	jump_timer.stop()
+	active_timer.stop()
 
 func _on_active_timer_timeout() -> void:
 	_reset()
