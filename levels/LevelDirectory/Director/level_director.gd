@@ -21,7 +21,6 @@ enum SetupType { L_BLOCKS, HALVES }
 @onready var environment = $Environment
 @onready var game_over_label = $Camera/ScreenFader/GameOver
 @onready var title_label = $Camera/ScreenFader/Title
-@onready var end_background = $EndBackground
 
 const SPAWN_DISTANCE = 2000.0 #distance away to spawn new stages and delete old ones
 const MONSTER_AVOID_DIST = 500.0 #lose if monster ever above you and within 500px distance of you

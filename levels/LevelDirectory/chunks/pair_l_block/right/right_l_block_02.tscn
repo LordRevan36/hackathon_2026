@@ -11,30 +11,30 @@
 [ext_resource type="PackedScene" uid="uid://batlbia6gpmsr" path="res://props/wires/wire.tscn" id="9_vpv1a"]
 [ext_resource type="PackedScene" uid="uid://bi3k2jdfhxc8d" path="res://props/platforms/swinging_platform.tscn" id="10_hsrwb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1857l"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsrwb"]
 resource_local_to_scene = true
 size = Vector2(144, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsrwb"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ao53"]
 resource_local_to_scene = true
 size = Vector2(350, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ao53"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bueqt"]
 resource_local_to_scene = true
 size = Vector2(180, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bueqt"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vliw"]
 resource_local_to_scene = true
 size = Vector2(256, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry7ik"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5mfc"]
 resource_local_to_scene = true
 size = Vector2(252, 36)
 
 [node name="RightLBlock02" unique_id=69217074 instance=ExtResource("1_1857l")]
 
 [node name="CollisionShape" parent="Geometry/TopRightPlatform" parent_id_path=PackedInt32Array(1952376278) index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_1857l")
+shape = SubResource("RectangleShape2D_hsrwb")
 
 [node name="BottomRightPlatform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="1" unique_id=1810100926]
 position = Vector2(1265, 1062)
@@ -44,7 +44,7 @@ position = Vector2(0, 0)
 
 [node name="CollisionShape" parent="Geometry/BottomRightPlatform" index="1" unique_id=1909510158]
 position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_hsrwb")
+shape = SubResource("RectangleShape2D_3ao53")
 
 [node name="BorderLines" parent="Geometry/BottomRightPlatform" index="2" unique_id=1730009195]
 position = Vector2(0, 0)
@@ -53,22 +53,24 @@ position = Vector2(0, 0)
 position = Vector2(703, 355)
 
 [node name="Polygon" parent="Geometry/Platform" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
+polygon = PackedVector2Array(-90, -18, 90, -18, 90, 18, -90, 18)
 
 [node name="CollisionShape" parent="Geometry/Platform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_3ao53")
+shape = SubResource("RectangleShape2D_bueqt")
 
 [node name="Platform2" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="3" unique_id=912375809 instance=ExtResource("2_hsrwb")]
 position = Vector2(639, 575)
 
 [node name="Polygon" parent="Geometry/Platform2" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-124, -14, 124, -14, 124, 14, -124, 14)
+polygon = PackedVector2Array(-128, -18, 128, -18, 128, 18, -128, 18)
 
 [node name="CollisionShape" parent="Geometry/Platform2" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_bueqt")
+shape = SubResource("RectangleShape2D_7vliw")
 
 [node name="Grate" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="4" unique_id=1637726119 instance=ExtResource("3_3ao53")]
+texture_repeat = 0
 position = Vector2(1290, 827)
+bodyTexture = null
 
 [node name="Rope" parent="Props" parent_id_path=PackedInt32Array(1442607) index="0" unique_id=202863634 instance=ExtResource("4_bueqt")]
 position = Vector2(920, -2)
@@ -97,10 +99,10 @@ position = Vector2(1028, 314)
 swing_speed = 2.5
 
 [node name="Polygon" parent="Props/SwingingPlatform/Platform" parent_id_path=PackedInt32Array(641372415, 1810100926) index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-122, -14, 122, -14, 122, 14, -122, 14)
+polygon = PackedVector2Array(-126, -18, 126, -18, 126, 18, -126, 18)
 
 [node name="CollisionShape" parent="Props/SwingingPlatform/Platform" parent_id_path=PackedInt32Array(641372415, 1810100926) index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_ry7ik")
+shape = SubResource("RectangleShape2D_o5mfc")
 
 [node name="LeftLine" parent="Props/SwingingPlatform" index="1" unique_id=701014776]
 points = PackedVector2Array(0, 0, -126, 234)
