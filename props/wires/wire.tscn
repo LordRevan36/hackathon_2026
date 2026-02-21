@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://batlbia6gpmsr"]
+
+[ext_resource type="Texture2D" uid="uid://d0cum53vgjxcg" path="res://assets/wire_small.png" id="1_wb0pb"]
+
+[node name="Wire" type="Line2D" unique_id=601601530]
+texture_repeat = 2
+points = PackedVector2Array(0, 0, -100, 0, -100, -300, 0, -300)
+texture = ExtResource("1_wb0pb")
+texture_mode = 1
