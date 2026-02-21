@@ -160,6 +160,8 @@ func _handle_climb() -> void:
 		velocity.y = -CLIMB_CONSTANT
 	elif Input.is_action_pressed("down"):
 		velocity.y = CLIMB_CONSTANT
+	elif Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"):
+		state = State.FALL
 	else:
 		velocity.y = 0
 

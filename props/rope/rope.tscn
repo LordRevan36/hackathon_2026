@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dklvp5hsg0isu"]
+
+[ext_resource type="Script" uid="uid://biv1l0kxmdpk2" path="res://props/rope/rope.gd" id="1_2mk1g"]
+[ext_resource type="Texture2D" uid="uid://cgusth0yyycvn" path="res://assets/rope_texture.png" id="1_pm27t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6psyd"]
+size = Vector2(32, 40)
+
+[node name="Rope" type="Node2D" unique_id=202863634]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=381486353]
+script = ExtResource("1_2mk1g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=199139241]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_6psyd")
+
+[node name="ropeunit1" type="Sprite2D" parent="Area2D" unique_id=1962986493]
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pm27t")
+
+[node name="ropeUnit2" type="Sprite2D" parent="Area2D" unique_id=422685061]
+position = Vector2(0, 24)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pm27t")
+
+[node name="ropeUnit3" type="Sprite2D" parent="Area2D" unique_id=644678749]
+position = Vector2(0, -24)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_pm27t")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
