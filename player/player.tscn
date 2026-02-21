@@ -335,6 +335,9 @@ animations = [{
 radius = 24.0
 height = 90.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_boad6"]
+size = Vector2(28, 48)
+
 [node name="Player" type="CharacterBody2D" unique_id=58500348]
 floor_snap_length = 10.0
 script = ExtResource("1_oul6g")
@@ -354,3 +357,14 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="playerTrigger" unique_id=1975600793]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_boad6")
+
+[node name="BoxCollisionCheck" type="Area2D" parent="." unique_id=857180232]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxCollisionCheck" unique_id=968839647]
+position = Vector2(-1, 43)
+shape = SubResource("RectangleShape2D_boad6")
+
+[connection signal="body_entered" from="BoxCollisionCheck" to="." method="_on_box_collision_check_body_entered"]
+[connection signal="body_exited" from="BoxCollisionCheck" to="." method="_on_box_collision_check_body_exited"]

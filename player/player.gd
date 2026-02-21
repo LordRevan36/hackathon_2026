@@ -16,6 +16,7 @@ var canClimb = false
 var state : State = State.IDLE
 var direction
 var ladderPos : int
+var typeVal : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	global_player.fellToDeath.connect(_falling_to_death)
@@ -125,7 +126,6 @@ func _falling_to_death() -> void:
 func onLadder(ladder) -> void:
 	canClimb = true
 	ladderPos = ladder
-
 func offLadder() -> void:
 	canClimb = false
 	state = State.IDLE
@@ -141,3 +141,15 @@ func ladderCtrl(ladderPos: int) -> bool:
 		return(false)
 	else:
 		return(true)
+
+
+func _on_box_collision_check_body_entered(body: Node2D) -> void:
+	if body.is_in_group("rigidbody"):
+		body.collision_layer = 1
+		body.collision_max = 1
+
+
+func _on_box_collision_check_body_exited(body: Node2D) -> void:
+	if body.is_in_group("rigidbody"):
+		body.collision_layer = 2
+		body.collision_max = 2

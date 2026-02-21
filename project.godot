@@ -31,6 +31,7 @@ window/size/viewport_height=900
 platform_group=""
 swinging_platform=""
 player=""
+rigidbody=""
 
 [input]
 
