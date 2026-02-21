@@ -30,7 +30,7 @@ size = Vector2(204, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4kpb"]
 resource_local_to_scene = true
-size = Vector2(228, 36)
+size = Vector2(252, 36)
 
 [node name="LeftHalf01" unique_id=69217074 instance=ExtResource("1_3n1r0")]
 
@@ -75,20 +75,20 @@ polygon = PackedVector2Array(-102, -18, 102, -18, 102, 18, -102, 18)
 shape = SubResource("RectangleShape2D_s6auj")
 
 [node name="Platform7" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="5" unique_id=1810100926 instance=ExtResource("2_jhrrx")]
-position = Vector2(152, 898)
+position = Vector2(140, 894)
 
 [node name="Polygon" parent="Geometry/Platform7" index="0" unique_id=1214519473]
-rotation = 0.39618972
+rotation = 0.3961897
 scale = Vector2(0.99999994, 0.99999994)
-polygon = PackedVector2Array(-110, -14, 110, -14, 110, 14, -110, 14)
+polygon = PackedVector2Array(-122, -14, 122, -14, 122, 14, -122, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform7" index="1" unique_id=1909510158]
-rotation = 0.39618975
+rotation = 0.39618972
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_s4kpb")
 
 [node name="BorderLines" parent="Geometry/Platform7" index="2" unique_id=1730009195]
-rotation = 0.39618972
+rotation = 0.3961897
 scale = Vector2(0.99999994, 0.99999994)
 
 [node name="SpringPad" parent="Props" parent_id_path=PackedInt32Array(1442607) index="0" unique_id=1047234168 instance=ExtResource("3_2qw1s")]

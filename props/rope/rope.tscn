@@ -4,33 +4,22 @@
 [ext_resource type="Texture2D" uid="uid://cgusth0yyycvn" path="res://assets/rope_texture.png" id="1_pm27t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6psyd"]
-size = Vector2(32, 40)
+size = Vector2(75, 150)
 
 [node name="Rope" type="Node2D" unique_id=202863634]
-
-[node name="Area2D" type="Area2D" parent="." unique_id=381486353]
 script = ExtResource("1_2mk1g")
+deploy_speed = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=199139241]
-position = Vector2(0, 12)
+[node name="ClimbArea" type="Area2D" parent="." unique_id=381486353]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ClimbArea" unique_id=199139241]
 shape = SubResource("RectangleShape2D_6psyd")
 
-[node name="ropeunit1" type="Sprite2D" parent="Area2D" unique_id=1962986493]
-rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=463088810]
+texture_repeat = 2
 texture = ExtResource("1_pm27t")
+region_enabled = true
+region_rect = Rect2(0, 0, 14, 50)
 
-[node name="ropeUnit2" type="Sprite2D" parent="Area2D" unique_id=422685061]
-position = Vector2(0, 24)
-rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_pm27t")
-
-[node name="ropeUnit3" type="Sprite2D" parent="Area2D" unique_id=644678749]
-position = Vector2(0, -24)
-rotation = 1.5707964
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_pm27t")
-
-[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
-[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="ClimbArea" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="ClimbArea" to="." method="_on_area_2d_body_exited"]

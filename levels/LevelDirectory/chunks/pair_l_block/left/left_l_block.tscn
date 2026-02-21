@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="3_tdg7h"]
 [ext_resource type="Script" uid="uid://cq0xonqbx1cf3" path="res://levels/LevelDirectory/chunks/base/editor_guide.gd" id="4_upx8l"]
 [ext_resource type="PackedScene" uid="uid://fbv68jl8ugae" path="res://props/ladder/Ladder.tscn" id="6_mg5en"]
+[ext_resource type="PackedScene" uid="uid://bdjudp3s8q13d" path="res://props/spring_pad/spring_pad.tscn" id="7_iiqb2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiqb2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0m4o"]
 resource_local_to_scene = true
 size = Vector2(300, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0m4o"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ietnt"]
 resource_local_to_scene = true
 size = Vector2(144, 36)
 
@@ -36,7 +37,7 @@ position = Vector2(720, 1062)
 polygon = PackedVector2Array(-150, -18, 150, -18, 150, 18, -150, 18)
 
 [node name="CollisionShape" parent="Geometry/BottomLeftGrate" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_iiqb2")
+shape = SubResource("RectangleShape2D_n0m4o")
 
 [node name="TopLeftPlatform" parent="Geometry" index="1" unique_id=1952376278 instance=ExtResource("3_tdg7h")]
 position = Vector2(648, 110)
@@ -50,7 +51,7 @@ polygon = PackedVector2Array(-72, -18, 72, -18, 72, 18, -72, 18)
 
 [node name="CollisionShape" parent="Geometry/TopLeftPlatform" index="1" unique_id=1909510158]
 position = Vector2(0, 82)
-shape = SubResource("RectangleShape2D_n0m4o")
+shape = SubResource("RectangleShape2D_ietnt")
 
 [node name="BorderLines" parent="Geometry/TopLeftPlatform" index="2" unique_id=1730009195]
 position = Vector2(0, 82)
@@ -58,6 +59,9 @@ position = Vector2(0, 82)
 [node name="ladder" parent="Props" parent_id_path=PackedInt32Array(1442607) index="0" unique_id=1009803214 instance=ExtResource("6_mg5en")]
 position = Vector2(720, 69)
 height = 210.0
+
+[node name="SpringPad" parent="Props" parent_id_path=PackedInt32Array(1442607) index="1" unique_id=1878219331 instance=ExtResource("7_iiqb2")]
+position = Vector2(834, 1037)
 
 [editable path="Geometry/BottomLeftGrate"]
 [editable path="Geometry/TopLeftPlatform"]

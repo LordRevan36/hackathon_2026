@@ -9,6 +9,10 @@
 resource_local_to_scene = true
 size = Vector2(144, 36)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32r02"]
+resource_local_to_scene = true
+size = Vector2(350, 36)
+
 [node name="RightLBlock" unique_id=69217074 instance=ExtResource("1_qpe53")]
 
 [node name="EditorGuide" type="Polygon2D" parent="." index="0" unique_id=778514721]
@@ -35,4 +39,22 @@ polygon = PackedVector2Array(-72, -18, 72, -18, 72, 18, -72, 18)
 [node name="CollisionShape" parent="Geometry/TopRightPlatform" index="1" unique_id=1909510158]
 shape = SubResource("RectangleShape2D_rqc57")
 
+[node name="BottomRightPlatform" parent="Geometry" index="1" unique_id=1810100926 instance=ExtResource("4_otr5y")]
+position = Vector2(792, 192)
+useBorders = false
+borderWidth = 0.0
+enableSnap = false
+
+[node name="Polygon" parent="Geometry/BottomRightPlatform" index="0" unique_id=1214519473]
+position = Vector2(473, 870)
+polygon = PackedVector2Array(-175, -18, 175, -18, 175, 18, -175, 18)
+
+[node name="CollisionShape" parent="Geometry/BottomRightPlatform" index="1" unique_id=1909510158]
+position = Vector2(473, 870)
+shape = SubResource("RectangleShape2D_32r02")
+
+[node name="BorderLines" parent="Geometry/BottomRightPlatform" index="2" unique_id=1730009195]
+position = Vector2(473, 870)
+
 [editable path="Geometry/TopRightPlatform"]
+[editable path="Geometry/BottomRightPlatform"]

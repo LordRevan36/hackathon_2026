@@ -6,25 +6,21 @@
 [ext_resource type="PackedScene" uid="uid://bdjudp3s8q13d" path="res://props/spring_pad/spring_pad.tscn" id="4_wukkf"]
 [ext_resource type="PackedScene" uid="uid://bi3k2jdfhxc8d" path="res://props/platforms/swinging_platform.tscn" id="5_in76l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wukkf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_in76l"]
 resource_local_to_scene = true
 size = Vector2(300, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_in76l"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sa1t"]
 resource_local_to_scene = true
 size = Vector2(144, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sa1t"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guhov"]
 resource_local_to_scene = true
 size = Vector2(156, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_guhov"]
-resource_local_to_scene = true
-size = Vector2(171, 36)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l3rg0"]
 resource_local_to_scene = true
-size = Vector2(99.25, 36)
+size = Vector2(171, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxsjo"]
 resource_local_to_scene = true
@@ -36,12 +32,16 @@ size = Vector2(99.25, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kkcup"]
 resource_local_to_scene = true
+size = Vector2(99.25, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpl2m"]
+resource_local_to_scene = true
 size = Vector2(200, 36)
 
 [node name="LeftLBlock02" unique_id=69217074 instance=ExtResource("1_um48b")]
 
 [node name="CollisionShape" parent="Geometry/BottomLeftGrate" parent_id_path=PackedInt32Array(1810100926) index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_wukkf")
+shape = SubResource("RectangleShape2D_in76l")
 
 [node name="TopLeftPlatform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="1" unique_id=1952376278]
 position = Vector2(648, 192)
@@ -51,7 +51,7 @@ position = Vector2(0, 0)
 
 [node name="CollisionShape" parent="Geometry/TopLeftPlatform" index="1" unique_id=1909510158]
 position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_in76l")
+shape = SubResource("RectangleShape2D_2sa1t")
 
 [node name="BorderLines" parent="Geometry/TopLeftPlatform" index="2" unique_id=1730009195]
 position = Vector2(0, 0)
@@ -63,7 +63,7 @@ position = Vector2(560, 908)
 polygon = PackedVector2Array(-74, -14, 74, -14, 74, 14, -74, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_2sa1t")
+shape = SubResource("RectangleShape2D_guhov")
 
 [node name="Platform2" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="3" unique_id=1096572182 instance=ExtResource("2_jxykk")]
 position = Vector2(484.5, 1062)
@@ -73,7 +73,7 @@ enableSnap = false
 polygon = PackedVector2Array(-81.5, -14, 81.5, -14, 81.5, 14, -81.5, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform2" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_guhov")
+shape = SubResource("RectangleShape2D_l3rg0")
 
 [node name="Platform3" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="4" unique_id=1122952568 instance=ExtResource("2_jxykk")]
 position = Vector2(49.375, 1062)
@@ -83,22 +83,22 @@ enableSnap = false
 polygon = PackedVector2Array(-45.625, -14, 45.625, -14, 45.625, 14, -45.625, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform3" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_l3rg0")
+shape = SubResource("RectangleShape2D_rxsjo")
 
 [node name="Platform4" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="5" unique_id=2123366788 instance=ExtResource("2_jxykk")]
 position = Vector2(49.375, 1062)
 enableSnap = false
 
 [node name="Polygon" parent="Geometry/Platform4" index="0" unique_id=1214519473]
-position = Vector2(106.625, -315)
+position = Vector2(88.625, -314)
 polygon = PackedVector2Array(-45.625, -14, 45.625, -14, 45.625, 14, -45.625, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform4" index="1" unique_id=1909510158]
-position = Vector2(106.625, -315)
-shape = SubResource("RectangleShape2D_rxsjo")
+position = Vector2(88.625, -314)
+shape = SubResource("RectangleShape2D_0vaoi")
 
 [node name="BorderLines" parent="Geometry/Platform4" index="2" unique_id=1730009195]
-position = Vector2(106.625, -315)
+position = Vector2(88.625, -314)
 
 [node name="Platform5" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="6" unique_id=184002631 instance=ExtResource("2_jxykk")]
 position = Vector2(49.375, 1062)
@@ -110,7 +110,7 @@ polygon = PackedVector2Array(-45.625, -14, 45.625, -14, 45.625, 14, -45.625, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform5" index="1" unique_id=1909510158]
 position = Vector2(5.625, -615)
-shape = SubResource("RectangleShape2D_0vaoi")
+shape = SubResource("RectangleShape2D_kkcup")
 
 [node name="BorderLines" parent="Geometry/Platform5" index="2" unique_id=1730009195]
 position = Vector2(5.625, -615)
@@ -118,30 +118,33 @@ position = Vector2(5.625, -615)
 [node name="Box" parent="Props" parent_id_path=PackedInt32Array(1442607) index="1" unique_id=989082987 instance=ExtResource("3_jedoe")]
 position = Vector2(458, 1017)
 
-[node name="SpringPad" parent="Props" parent_id_path=PackedInt32Array(1442607) index="2" unique_id=1878219331 instance=ExtResource("4_wukkf")]
+[node name="SpringPad2" parent="Props" parent_id_path=PackedInt32Array(1442607) index="2" unique_id=1878219331 instance=ExtResource("4_wukkf")]
 position = Vector2(48, 1037)
 
-[node name="SpringPad2" parent="Props" parent_id_path=PackedInt32Array(1442607) index="3" unique_id=1919222492 instance=ExtResource("4_wukkf")]
-position = Vector2(155, 722)
+[node name="SpringPad3" parent="Props" parent_id_path=PackedInt32Array(1442607) index="3" unique_id=1919222492 instance=ExtResource("4_wukkf")]
+position = Vector2(137, 723)
 
-[node name="SpringPad3" parent="Props" parent_id_path=PackedInt32Array(1442607) index="4" unique_id=2062317532 instance=ExtResource("4_wukkf")]
+[node name="SpringPad4" parent="Props" parent_id_path=PackedInt32Array(1442607) index="4" unique_id=2062317532 instance=ExtResource("4_wukkf")]
 position = Vector2(55, 422)
 
 [node name="SwingingPlatform" parent="Props" parent_id_path=PackedInt32Array(1442607) index="5" unique_id=641372415 instance=ExtResource("5_in76l")]
 position = Vector2(227, 28)
 swing_radius = 250.0
 
-[node name="Polygon" parent="Props/SwingingPlatform/Platform" parent_id_path=PackedInt32Array(641372415, 1810100926) index="0" unique_id=1214519473]
+[node name="Platform" parent="Props/SwingingPlatform" index="0" unique_id=1810100926]
+position = Vector2(0, 250)
+
+[node name="Polygon" parent="Props/SwingingPlatform/Platform" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-96, -14, 96, -14, 96, 14, -96, 14)
 
-[node name="CollisionShape" parent="Props/SwingingPlatform/Platform" parent_id_path=PackedInt32Array(641372415, 1810100926) index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_kkcup")
+[node name="CollisionShape" parent="Props/SwingingPlatform/Platform" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_cpl2m")
 
 [node name="LeftLine" parent="Props/SwingingPlatform" index="1" unique_id=701014776]
-points = PackedVector2Array(0, 0, -100, 234)
+points = PackedVector2Array(0, 0, -100, 232)
 
 [node name="RightLine" parent="Props/SwingingPlatform" index="2" unique_id=1359893425]
-points = PackedVector2Array(0, 0, 100, 234)
+points = PackedVector2Array(0, 0, 100, 232)
 
 [editable path="Geometry/BottomLeftGrate"]
 [editable path="Geometry/TopLeftPlatform"]
