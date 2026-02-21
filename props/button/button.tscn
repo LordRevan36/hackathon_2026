@@ -1,27 +1,43 @@
 [gd_scene format=3 uid="uid://bwv7bf804egto"]
 
 [ext_resource type="Script" uid="uid://06fqumaf8ff1" path="res://props/button/button_1.gd" id="1_du14w"]
-[ext_resource type="Texture2D" uid="uid://27n5tcow3k6b" path="res://icon.svg" id="2_6cxep"]
+[ext_resource type="Texture2D" uid="uid://beodlf120vuju" path="res://assets/button_active_modified.png" id="2_6cxep"]
+[ext_resource type="Texture2D" uid="uid://obs5l8ta1c37" path="res://assets/button_inactive.png" id="2_du14w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1c21"]
-size = Vector2(130, 10)
+size = Vector2(60, 18)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg04q"]
-size = Vector2(128, 10)
+[sub_resource type="SpriteFrames" id="SpriteFrames_mg04q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6cxep")
+}],
+"loop": true,
+"name": &"active",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_du14w")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 5.0
+}]
 
-[node name="Button" type="Node2D" unique_id=1368852690]
-
-[node name="button" type="StaticBody2D" parent="." unique_id=1838349673]
+[node name="button" type="Area2D" unique_id=278923387]
 script = ExtResource("1_du14w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="button" unique_id=1562383998]
+[node name="Collider" type="CollisionShape2D" parent="." unique_id=1562383998]
+position = Vector2(0, -9)
 shape = SubResource("RectangleShape2D_h1c21")
 
-[node name="Sprite2D" type="Sprite2D" parent="button" unique_id=1044498206]
-position = Vector2(0, 1.9999981)
-scale = Vector2(1, 0.09374991)
-texture = ExtResource("2_6cxep")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=2137050850]
+position = Vector2(0, 1.9073486e-06)
+scale = Vector2(0.11993717, 0.11993719)
+sprite_frames = SubResource("SpriteFrames_mg04q")
+animation = &"inactive"
 
-[node name="pressedCheck" type="CollisionShape2D" parent="button" unique_id=583843928]
-position = Vector2(0, -5)
-shape = SubResource("RectangleShape2D_mg04q")
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

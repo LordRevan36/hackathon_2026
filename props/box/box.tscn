@@ -8,7 +8,7 @@ size = Vector2(48, 48)
 
 [node name="Box" type="Node2D" unique_id=1120624714]
 
-[node name="Box" type="RigidBody2D" parent="." unique_id=989082987]
+[node name="Box" type="RigidBody2D" parent="." unique_id=989082987 groups=["box"]]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_ag0s5")
