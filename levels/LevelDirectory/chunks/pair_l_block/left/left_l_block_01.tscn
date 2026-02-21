@@ -2,46 +2,52 @@
 
 [ext_resource type="PackedScene" uid="uid://r5jlt0l8sgoe" path="res://levels/LevelDirectory/chunks/pair_l_block/left/left_l_block.tscn" id="1_ox8d1"]
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="2_wcdra"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcdra"]
-resource_local_to_scene = true
-size = Vector2(570, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbc1d"]
-resource_local_to_scene = true
-size = Vector2(300, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhodj"]
-resource_local_to_scene = true
-size = Vector2(144, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcocb"]
-resource_local_to_scene = true
-size = Vector2(196, 36)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4dta"]
-resource_local_to_scene = true
-size = Vector2(136, 36)
+[ext_resource type="PackedScene" uid="uid://bbjedi8pjw5yl" path="res://props/platforms/grate.tscn" id="3_dbc1d"]
+[ext_resource type="PackedScene" uid="uid://bdjudp3s8q13d" path="res://props/spring_pad/spring_pad.tscn" id="4_xhodj"]
+[ext_resource type="PackedScene" uid="uid://burgldlh2lryq" path="res://props/box/box.tscn" id="5_wcocb"]
+[ext_resource type="PackedScene" uid="uid://bwv7bf804egto" path="res://props/button/button.tscn" id="6_y4dta"]
+[ext_resource type="PackedScene" uid="uid://dklvp5hsg0isu" path="res://props/rope/rope.tscn" id="7_ujba7"]
+[ext_resource type="PackedScene" uid="uid://batlbia6gpmsr" path="res://props/wires/wire.tscn" id="8_2slgn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ujba7"]
 resource_local_to_scene = true
-size = Vector2(164, 36)
+size = Vector2(570, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2slgn"]
 resource_local_to_scene = true
-size = Vector2(140, 36)
+size = Vector2(300, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xf0oi"]
 resource_local_to_scene = true
-size = Vector2(160, 36)
+size = Vector2(144, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xr7oc"]
 resource_local_to_scene = true
-size = Vector2(204, 36)
+size = Vector2(196, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_srro4"]
 resource_local_to_scene = true
+size = Vector2(96, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_508ph"]
+resource_local_to_scene = true
+size = Vector2(176, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glcmm"]
+resource_local_to_scene = true
+size = Vector2(168, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaita"]
+resource_local_to_scene = true
+size = Vector2(275, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3jlv"]
+resource_local_to_scene = true
 size = Vector2(268, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lucas"]
+resource_local_to_scene = true
+size = Vector2(113, 36)
 
 [node name="LeftLBlock01" unique_id=69217074 instance=ExtResource("1_ox8d1")]
 
@@ -53,10 +59,10 @@ enableSnap = false
 polygon = PackedVector2Array(-281, -14, 281, -14, 281, 14, -281, 14)
 
 [node name="CollisionShape" parent="Geometry/BottomLeftPlatform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_wcdra")
+shape = SubResource("RectangleShape2D_ujba7")
 
 [node name="CollisionShape" parent="Geometry/BottomLeftGrate" parent_id_path=PackedInt32Array(1810100926) index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_dbc1d")
+shape = SubResource("RectangleShape2D_2slgn")
 
 [node name="TopLeftPlatform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="2" unique_id=1952376278]
 position = Vector2(648, 192)
@@ -66,84 +72,109 @@ position = Vector2(0, 0)
 
 [node name="CollisionShape" parent="Geometry/TopLeftPlatform" index="1" unique_id=1909510158]
 position = Vector2(0, 0)
-shape = SubResource("RectangleShape2D_xhodj")
+shape = SubResource("RectangleShape2D_xf0oi")
 
 [node name="BorderLines" parent="Geometry/TopLeftPlatform" index="2" unique_id=1730009195]
 position = Vector2(0, 0)
 
 [node name="Platform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="3" unique_id=1100598372 instance=ExtResource("2_wcdra")]
-position = Vector2(380, 768)
+position = Vector2(380, 916)
 
 [node name="Polygon" parent="Geometry/Platform" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-94, -14, 94, -14, 94, 14, -94, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_wcocb")
+shape = SubResource("RectangleShape2D_xr7oc")
 
 [node name="Platform2" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="4" unique_id=1537640730 instance=ExtResource("2_wcdra")]
-position = Vector2(112, 648)
+position = Vector2(64, 928)
 
 [node name="Polygon" parent="Geometry/Platform2" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-64, -14, 64, -14, 64, 14, -64, 14)
+polygon = PackedVector2Array(-44, -14, 44, -14, 44, 14, -44, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform2" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_y4dta")
+shape = SubResource("RectangleShape2D_srro4")
 
 [node name="Platform3" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="5" unique_id=1812409886 instance=ExtResource("2_wcdra")]
-position = Vector2(251, 484)
+position = Vector2(199, 564)
 
 [node name="Polygon" parent="Geometry/Platform3" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-78, -14, 78, -14, 78, 14, -78, 14)
+polygon = PackedVector2Array(-84, -14, 84, -14, 84, 14, -84, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform3" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_ujba7")
+shape = SubResource("RectangleShape2D_508ph")
 
-[node name="Platform4" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="6" unique_id=2043162368 instance=ExtResource("2_wcdra")]
-position = Vector2(92, 308)
+[node name="Platform4" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="6" unique_id=1810100926 instance=ExtResource("2_wcdra")]
+position = Vector2(91, 476)
 
 [node name="Polygon" parent="Geometry/Platform4" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-66, -14, 66, -14, 66, 14, -66, 14)
+position = Vector2(-4, -44)
+polygon = PackedVector2Array(-80, -14, 80, -14, 80, 14, -80, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform4" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_2slgn")
+position = Vector2(-4, -44)
+shape = SubResource("RectangleShape2D_glcmm")
 
-[node name="Platform5" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="7" unique_id=1983250654 instance=ExtResource("2_wcdra")]
-position = Vector2(252, 172)
+[node name="BorderLines" parent="Geometry/Platform4" index="2" unique_id=1730009195]
+position = Vector2(-4, -44)
 
-[node name="Polygon" parent="Geometry/Platform5" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-76, -14, 76, -14, 76, 14, -76, 14)
-
-[node name="CollisionShape" parent="Geometry/Platform5" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_xf0oi")
-
-[node name="Platform6" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="8" unique_id=758663410 instance=ExtResource("2_wcdra")]
-position = Vector2(474, 192)
+[node name="Platform6" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="7" unique_id=758663410 instance=ExtResource("2_wcdra")]
+position = Vector2(438.5, 192)
 useBorders = false
 borderWidth = 0.0
 enableSnap = false
 
 [node name="Polygon" parent="Geometry/Platform6" index="0" unique_id=1214519473]
-polygon = PackedVector2Array(-102, -18, 102, -18, 102, 18, -102, 18)
+polygon = PackedVector2Array(-137.5, -18, 137.5, -18, 137.5, 18, -137.5, 18)
 
 [node name="CollisionShape" parent="Geometry/Platform6" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_xr7oc")
+shape = SubResource("RectangleShape2D_iaita")
 
-[node name="Platform7" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="9" unique_id=1810100926 instance=ExtResource("2_wcdra")]
-position = Vector2(140, 918)
+[node name="Platform7" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="8" unique_id=1961977676 instance=ExtResource("2_wcdra")]
+position = Vector2(208, 806)
 
 [node name="Polygon" parent="Geometry/Platform7" index="0" unique_id=1214519473]
-rotation = 0.47647488
-scale = Vector2(0.9999999, 0.9999999)
+rotation = 1.5707964
+scale = Vector2(0.99999994, 0.99999994)
 polygon = PackedVector2Array(-130, -14, 130, -14, 130, 14, -130, 14)
 
 [node name="CollisionShape" parent="Geometry/Platform7" index="1" unique_id=1909510158]
-rotation = 0.47647488
+rotation = 1.5707964
 scale = Vector2(0.99999994, 0.99999994)
-shape = SubResource("RectangleShape2D_srro4")
+shape = SubResource("RectangleShape2D_d3jlv")
 
 [node name="BorderLines" parent="Geometry/Platform7" index="2" unique_id=1730009195]
-rotation = 0.47647488
-scale = Vector2(0.9999999, 0.9999999)
+rotation = 1.5707964
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Grate" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="9" unique_id=1162129163 instance=ExtResource("3_dbc1d")]
+position = Vector2(287.5, 669)
+
+[node name="Polygon" parent="Geometry/Grate" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-56.5, -18, 56.5, -18, 56.5, 18, -56.5, 18)
+
+[node name="CollisionShape" parent="Geometry/Grate" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_lucas")
+
+[node name="SpringPad2" parent="Props" parent_id_path=PackedInt32Array(1442607) index="2" unique_id=1878219331 instance=ExtResource("4_xhodj")]
+position = Vector2(319, 890)
+
+[node name="Box" parent="Props" parent_id_path=PackedInt32Array(1442607) index="3" unique_id=989082987 instance=ExtResource("5_wcocb")]
+position = Vector2(85, 378)
+
+[node name="button" parent="Props" parent_id_path=PackedInt32Array(1442607) index="4" unique_id=278923387 instance=ExtResource("6_y4dta")]
+position = Vector2(60, 910)
+
+[node name="Rope" parent="Props" parent_id_path=PackedInt32Array(1442607) index="5" unique_id=202863634 instance=ExtResource("7_ujba7")]
+position = Vector2(253, 0)
+deploy_speed = 3.0
+height = 450.0
+
+[node name="Wire" parent="Props" parent_id_path=PackedInt32Array(1442607) index="6" unique_id=601601530 instance=ExtResource("8_2slgn")]
+position = Vector2(30, 920)
+points = PackedVector2Array(0, 0, -25, 0, -25, -920, 220, -920)
+
+[connection signal="active" from="Props/button" to="Props/Rope" method="deploy_rope"]
 
 [editable path="Geometry/BottomLeftPlatform"]
 [editable path="Geometry/BottomLeftGrate"]
@@ -152,6 +183,6 @@ scale = Vector2(0.9999999, 0.9999999)
 [editable path="Geometry/Platform2"]
 [editable path="Geometry/Platform3"]
 [editable path="Geometry/Platform4"]
-[editable path="Geometry/Platform5"]
 [editable path="Geometry/Platform6"]
 [editable path="Geometry/Platform7"]
+[editable path="Geometry/Grate"]

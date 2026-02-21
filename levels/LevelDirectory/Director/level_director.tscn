@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://c6hdoerwfiamt" path="res://player/player.tscn" id="4_o3syh"]
 [ext_resource type="PackedScene" uid="uid://1uhutj6tqv7b" path="res://levels/LevelDirectory/chunks/pair_half/left/left_half_01.tscn" id="4_wnqd3"]
 [ext_resource type="PackedScene" uid="uid://jcji7tc0r56r" path="res://levels/LevelDirectory/chunks/pair_half/right/right_half_01.tscn" id="5_sf7yg"]
+[ext_resource type="PackedScene" uid="uid://bjrvqb8xcj328" path="res://levels/LevelDirectory/chunks/pair_l_block/right/right_l_block_02.tscn" id="5_wixrb"]
 [ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="5_wu7qg"]
 [ext_resource type="PackedScene" uid="uid://cykqp540sjmn" path="res://monster/monster.tscn" id="6_ps5x1"]
+[ext_resource type="PackedScene" uid="uid://2ra75ferdck3" path="res://levels/LevelDirectory/chunks/pair_half/left/left_half_02.tscn" id="7_x1slh"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ps5x1"]
 resource_local_to_scene = true
@@ -23,8 +25,8 @@ b = Vector2(0, 800)
 [node name="LevelDirector" type="Node2D" unique_id=1109521146 node_paths=PackedStringArray("player")]
 script = ExtResource("1_wi2u4")
 left_l_blocks = Array[PackedScene]([ExtResource("2_fpffd"), ExtResource("3_sf7yg")])
-right_l_blocks = Array[PackedScene]([ExtResource("3_o3syh")])
-left_halves = Array[PackedScene]([ExtResource("4_wnqd3")])
+right_l_blocks = Array[PackedScene]([ExtResource("3_o3syh"), ExtResource("5_wixrb")])
+left_halves = Array[PackedScene]([ExtResource("4_wnqd3"), ExtResource("7_x1slh")])
 right_halves = Array[PackedScene]([ExtResource("5_sf7yg")])
 player = NodePath("Player")
 

@@ -2,6 +2,8 @@ extends Node2D
 
 @export var travel_distance: Vector2 = Vector2(0, -200)
 @export var speed: float = 100.0
+@export var require_player : bool = true
+
 
 @onready var platform = $MovingPlatform
 
@@ -17,7 +19,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	var destination = start_pos
 	
-	if is_button_active and is_player_on:
+	if is_button_active and (is_player_on or not require_player):
 		destination = target_pos
 
 	if platform.position != destination:

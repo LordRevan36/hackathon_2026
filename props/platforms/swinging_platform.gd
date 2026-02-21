@@ -12,10 +12,12 @@ extends Node2D
 
 @export var updateRadius : bool = false
 @export var updateLines : bool = false
+@export var currently_active : bool = true
 
 var time_passed = 0.0
 var current_velocity : Vector2 = Vector2.ZERO
 var _last_platform_global_pos : Vector2 = Vector2.ZERO
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,7 +32,8 @@ func _physics_process(delta: float) -> void:
 		if updateLines:
 			_update_lines()
 	else:
-		_update_rotation(delta)
+		if currently_active:
+			_update_rotation(delta)
 		_save_velocity(delta)
 
 func _update_radius() -> void:
@@ -79,3 +82,9 @@ func _save_velocity(delta: float) -> void:
 
 func _get_swing_velocity() -> Vector2:
 	return current_velocity
+
+func _set_active() -> void:
+	currently_active = true
+
+func _set_inactive() -> void:
+	currently_active = false

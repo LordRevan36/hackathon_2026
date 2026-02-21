@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dpc8mw3b7upuu"]
 
-[ext_resource type="PackedScene" uid="uid://jcji7tc0r56r" path="res://levels/LevelDirectory/chunks/pair_half/right/right_half_01.tscn" id="1_2qdtn"]
-[ext_resource type="PackedScene" uid="uid://1uhutj6tqv7b" path="res://levels/LevelDirectory/chunks/pair_half/left/left_half_01.tscn" id="2_efi0n"]
+[ext_resource type="PackedScene" uid="uid://2ra75ferdck3" path="res://levels/LevelDirectory/chunks/pair_half/left/left_half_02.tscn" id="1_53326"]
+[ext_resource type="PackedScene" uid="uid://wr2gh6iomvfi" path="res://levels/LevelDirectory/chunks/pair_half/right/right_half_02.tscn" id="2_53326"]
 [ext_resource type="PackedScene" uid="uid://c6hdoerwfiamt" path="res://player/player.tscn" id="3_efi0n"]
 [ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="4_53326"]
 [ext_resource type="PackedScene" uid="uid://cykqp540sjmn" path="res://monster/monster.tscn" id="5_8i0xb"]
@@ -18,9 +18,9 @@ b = Vector2(0, 800)
 
 [node name="Node2D" type="Node2D" unique_id=1244731670]
 
-[node name="RightHalf01" parent="." unique_id=69217074 instance=ExtResource("1_2qdtn")]
+[node name="LeftHalf02" parent="." unique_id=69217074 instance=ExtResource("1_53326")]
 
-[node name="LeftLBlock01" parent="." unique_id=2024909112 instance=ExtResource("2_efi0n")]
+[node name="RightHalf02" parent="." unique_id=2037156050 instance=ExtResource("2_53326")]
 
 [node name="Player" parent="." unique_id=58500348 instance=ExtResource("3_efi0n")]
 position = Vector2(720, 900)

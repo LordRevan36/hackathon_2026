@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://wr2gh6iomvfi"]
+
+[ext_resource type="PackedScene" uid="uid://bdjna0mg5w03" path="res://levels/LevelDirectory/chunks/pair_half/right/right_half.tscn" id="1_yqgtu"]
+[ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="2_b1ydg"]
+[ext_resource type="PackedScene" uid="uid://bi3k2jdfhxc8d" path="res://props/platforms/swinging_platform.tscn" id="3_vbxyn"]
+[ext_resource type="PackedScene" uid="uid://bdjudp3s8q13d" path="res://props/spring_pad/spring_pad.tscn" id="4_sfjrt"]
+[ext_resource type="PackedScene" uid="uid://bwv7bf804egto" path="res://props/button/button.tscn" id="5_b1ydg"]
+[ext_resource type="PackedScene" uid="uid://burgldlh2lryq" path="res://props/box/box.tscn" id="6_vbxyn"]
+[ext_resource type="PackedScene" uid="uid://batlbia6gpmsr" path="res://props/wires/wire.tscn" id="7_sfjrt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqgtu"]
+resource_local_to_scene = true
+size = Vector2(144, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1ydg"]
+resource_local_to_scene = true
+size = Vector2(150, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vbxyn"]
+resource_local_to_scene = true
+size = Vector2(268, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfjrt"]
+resource_local_to_scene = true
+size = Vector2(180, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7h7bl"]
+resource_local_to_scene = true
+size = Vector2(116, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i30dp"]
+resource_local_to_scene = true
+size = Vector2(152, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_055kx"]
+resource_local_to_scene = true
+size = Vector2(260, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cp2l3"]
+resource_local_to_scene = true
+size = Vector2(212, 36)
+
+[node name="RightHalf02" unique_id=69217074 instance=ExtResource("1_yqgtu")]
+
+[node name="CollisionShape" parent="Geometry/TopRightPlatform" parent_id_path=PackedInt32Array(1952376278) index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_yqgtu")
+
+[node name="CollisionShape" parent="Geometry/BottomLeftGrate" parent_id_path=PackedInt32Array(1810100926) index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_b1ydg")
+
+[node name="Platform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="2" unique_id=1810100926 instance=ExtResource("2_b1ydg")]
+position = Vector2(1025, 960)
+
+[node name="Polygon" parent="Geometry/Platform" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-130, -14, 130, -14, 130, 14, -130, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_vbxyn")
+
+[node name="Platform2" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="3" unique_id=1267474556 instance=ExtResource("2_b1ydg")]
+position = Vector2(1238, 788)
+
+[node name="Polygon" parent="Geometry/Platform2" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform2" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_sfjrt")
+
+[node name="Platform3" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="4" unique_id=1327496462 instance=ExtResource("2_b1ydg")]
+position = Vector2(1381, 957)
+
+[node name="Polygon" parent="Geometry/Platform3" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-54, -14, 54, -14, 54, 14, -54, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform3" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_7h7bl")
+
+[node name="Platform5" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="5" unique_id=303571279 instance=ExtResource("2_b1ydg")]
+position = Vector2(1217, 365)
+
+[node name="Polygon" parent="Geometry/Platform5" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-72, -14, 72, -14, 72, 14, -72, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform5" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_i30dp")
+
+[node name="Platform4" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="6" unique_id=921632519 instance=ExtResource("2_b1ydg")]
+position = Vector2(994, 156)
+
+[node name="Polygon" parent="Geometry/Platform4" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-126, -14, 126, -14, 126, 14, -126, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform4" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_055kx")
+
+[node name="SwingingPlatform" parent="Props" parent_id_path=PackedInt32Array(1442607) index="0" unique_id=641372415 instance=ExtResource("3_vbxyn")]
+position = Vector2(918, 451)
+max_angle_degrees = 45.0
+swing_speed = 3.0
+currently_active = false
+
+[node name="Polygon" parent="Props/SwingingPlatform/Platform" parent_id_path=PackedInt32Array(641372415, 1810100926) index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-102, -14, 102, -14, 102, 14, -102, 14)
+
+[node name="CollisionShape" parent="Props/SwingingPlatform/Platform" parent_id_path=PackedInt32Array(641372415, 1810100926) index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_cp2l3")
+
+[node name="LeftLine" parent="Props/SwingingPlatform" index="1" unique_id=701014776]
+points = PackedVector2Array(0, 0, -106, 234)
+
+[node name="RightLine" parent="Props/SwingingPlatform" index="2" unique_id=1359893425]
+points = PackedVector2Array(0, 0, 106, 234)
+
+[node name="SpringPad" parent="Props" parent_id_path=PackedInt32Array(1442607) index="1" unique_id=1878219331 instance=ExtResource("4_sfjrt")]
+position = Vector2(1110, 935)
+
+[node name="SpringPad2" parent="Props" parent_id_path=PackedInt32Array(1442607) index="2" unique_id=285450205 instance=ExtResource("4_sfjrt")]
+position = Vector2(1258, 338)
+
+[node name="button" parent="Props" parent_id_path=PackedInt32Array(1442607) index="3" unique_id=278923387 instance=ExtResource("5_b1ydg")]
+position = Vector2(1382, 939)
+
+[node name="Box" parent="Props" parent_id_path=PackedInt32Array(1442607) index="4" unique_id=989082987 instance=ExtResource("6_vbxyn")]
+position = Vector2(1270, 740)
+
+[node name="Wire" parent="Props" parent_id_path=PackedInt32Array(1442607) index="5" unique_id=601601530 instance=ExtResource("7_sfjrt")]
+position = Vector2(1347, 948)
+points = PackedVector2Array(8, 5, 8, 38, -606, 37, -605, -496, -428, -497)
+
+[connection signal="active" from="Props/button" to="Props/SwingingPlatform" method="_set_active"]
+[connection signal="inactive" from="Props/button" to="Props/SwingingPlatform" method="_set_inactive"]
+
+[editable path="Geometry/TopRightPlatform"]
+[editable path="Geometry/BottomLeftGrate"]
+[editable path="Geometry/Platform"]
+[editable path="Geometry/Platform2"]
+[editable path="Geometry/Platform3"]
+[editable path="Geometry/Platform5"]
+[editable path="Geometry/Platform4"]
+[editable path="Props/SwingingPlatform"]
+[editable path="Props/SwingingPlatform/Platform"]

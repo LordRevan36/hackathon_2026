@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://brtd646syjdyg"]
 
-[ext_resource type="PackedScene" uid="uid://batutxrtbl1rw" path="res://levels/LevelDirectory/chunks/pair_l_block/left/left_l_block_02.tscn" id="1_m3qnw"]
-[ext_resource type="PackedScene" uid="uid://b82mhjrk8aagr" path="res://levels/LevelDirectory/chunks/pair_l_block/right/right_l_block_01.tscn" id="2_5mrbc"]
+[ext_resource type="PackedScene" uid="uid://bjrvqb8xcj328" path="res://levels/LevelDirectory/chunks/pair_l_block/right/right_l_block_02.tscn" id="2_m3qnw"]
 [ext_resource type="PackedScene" uid="uid://c6hdoerwfiamt" path="res://player/player.tscn" id="3_eckk2"]
 [ext_resource type="Script" uid="uid://c2pbc6te4kqtt" path="res://player/camera.gd" id="4_mcjn4"]
 [ext_resource type="PackedScene" uid="uid://cykqp540sjmn" path="res://monster/monster.tscn" id="5_iea1n"]
+[ext_resource type="PackedScene" uid="uid://dh3nkrxodqlyl" path="res://levels/LevelDirectory/chunks/pair_l_block/left/left_l_block_01.tscn" id="5_m3qnw"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_ej273"]
 resource_local_to_scene = true
@@ -18,9 +18,9 @@ b = Vector2(0, 800)
 
 [node name="Node2D" type="Node2D" unique_id=1244731670]
 
-[node name="LeftLBlock02" parent="." unique_id=69217074 instance=ExtResource("1_m3qnw")]
+[node name="LeftLBlock01" parent="." unique_id=69217074 instance=ExtResource("5_m3qnw")]
 
-[node name="RightLBlock01" parent="." unique_id=1261687570 instance=ExtResource("2_5mrbc")]
+[node name="RightLBlock02" parent="." unique_id=1525959471 instance=ExtResource("2_m3qnw")]
 
 [node name="Player" parent="." unique_id=58500348 instance=ExtResource("3_eckk2")]
 position = Vector2(720, 900)

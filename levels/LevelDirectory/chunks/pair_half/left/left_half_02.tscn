@@ -1,0 +1,179 @@
+[gd_scene format=3 uid="uid://2ra75ferdck3"]
+
+[ext_resource type="PackedScene" uid="uid://7fpjlxl4oyji" path="res://levels/LevelDirectory/chunks/pair_half/left/left_half.tscn" id="1_213ob"]
+[ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="2_4bttg"]
+[ext_resource type="PackedScene" uid="uid://bdjudp3s8q13d" path="res://props/spring_pad/spring_pad.tscn" id="3_78snn"]
+[ext_resource type="PackedScene" uid="uid://bwv7bf804egto" path="res://props/button/button.tscn" id="4_1032o"]
+[ext_resource type="PackedScene" uid="uid://burgldlh2lryq" path="res://props/box/box.tscn" id="5_e4f3d"]
+[ext_resource type="PackedScene" uid="uid://batlbia6gpmsr" path="res://props/wires/wire.tscn" id="6_1a1hs"]
+[ext_resource type="PackedScene" uid="uid://bnxccdjidlvxv" path="res://props/platforms/elevator.tscn" id="7_pou7a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_213ob"]
+resource_local_to_scene = true
+size = Vector2(150, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bttg"]
+resource_local_to_scene = true
+size = Vector2(144, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78snn"]
+resource_local_to_scene = true
+size = Vector2(570, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1032o"]
+resource_local_to_scene = true
+size = Vector2(208, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pou7a"]
+resource_local_to_scene = true
+size = Vector2(140, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qr8bm"]
+resource_local_to_scene = true
+size = Vector2(116, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4f3d"]
+resource_local_to_scene = true
+size = Vector2(204, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1a1hs"]
+resource_local_to_scene = true
+size = Vector2(104, 36)
+
+[node name="LeftHalf02" unique_id=69217074 instance=ExtResource("1_213ob")]
+
+[node name="CollisionShape" parent="Geometry/BottomLeftGrate" parent_id_path=PackedInt32Array(1810100926) index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_213ob")
+
+[node name="TopLeftPlatform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="1" unique_id=1952376278]
+position = Vector2(648, 192)
+
+[node name="Polygon" parent="Geometry/TopLeftPlatform" index="0" unique_id=1214519473]
+position = Vector2(0, 0)
+
+[node name="CollisionShape" parent="Geometry/TopLeftPlatform" index="1" unique_id=1909510158]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_4bttg")
+
+[node name="BorderLines" parent="Geometry/TopLeftPlatform" index="2" unique_id=1730009195]
+position = Vector2(0, 0)
+
+[node name="CollisionShape" parent="Geometry/BottomLeftPlatform" parent_id_path=PackedInt32Array(1229913838) index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_78snn")
+
+[node name="Platform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="3" unique_id=1100598372 instance=ExtResource("2_4bttg")]
+position = Vector2(380, 768)
+
+[node name="Polygon" parent="Geometry/Platform" index="0" unique_id=1214519473]
+position = Vector2(-28, -20)
+polygon = PackedVector2Array(-100, -14, 100, -14, 100, 14, -100, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform" index="1" unique_id=1909510158]
+position = Vector2(-28, -20)
+shape = SubResource("RectangleShape2D_1032o")
+
+[node name="BorderLines" parent="Geometry/Platform" index="2" unique_id=1730009195]
+position = Vector2(-28, -20)
+
+[node name="Platform3" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="4" unique_id=1810100926 instance=ExtResource("2_4bttg")]
+position = Vector2(380, 768)
+
+[node name="Polygon" parent="Geometry/Platform3" index="0" unique_id=1214519473]
+position = Vector2(132, -328)
+polygon = PackedVector2Array(-66, -14, 66, -14, 66, 14, -66, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform3" index="1" unique_id=1909510158]
+position = Vector2(132, -328)
+shape = SubResource("RectangleShape2D_pou7a")
+
+[node name="BorderLines" parent="Geometry/Platform3" index="2" unique_id=1730009195]
+position = Vector2(132, -328)
+
+[node name="Platform4" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="5" unique_id=1282168239 instance=ExtResource("2_4bttg")]
+position = Vector2(380, 768)
+
+[node name="Polygon" parent="Geometry/Platform4" index="0" unique_id=1214519473]
+position = Vector2(268, -176)
+polygon = PackedVector2Array(-54, -14, 54, -14, 54, 14, -54, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform4" index="1" unique_id=1909510158]
+position = Vector2(268, -176)
+shape = SubResource("RectangleShape2D_qr8bm")
+
+[node name="BorderLines" parent="Geometry/Platform4" index="2" unique_id=1730009195]
+position = Vector2(268, -176)
+
+[node name="Platform6" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="6" unique_id=758663410 instance=ExtResource("2_4bttg")]
+position = Vector2(474, 192)
+useBorders = false
+borderWidth = 0.0
+enableSnap = false
+
+[node name="Polygon" parent="Geometry/Platform6" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-102, -18, 102, -18, 102, 18, -102, 18)
+
+[node name="CollisionShape" parent="Geometry/Platform6" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_e4f3d")
+
+[node name="Platform2" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="7" unique_id=1643246354 instance=ExtResource("2_4bttg")]
+position = Vector2(380, 768)
+
+[node name="Polygon" parent="Geometry/Platform2" index="0" unique_id=1214519473]
+position = Vector2(-204, 96)
+polygon = PackedVector2Array(-48, -14, 48, -14, 48, 14, -48, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform2" index="1" unique_id=1909510158]
+position = Vector2(-204, 96)
+shape = SubResource("RectangleShape2D_1a1hs")
+
+[node name="BorderLines" parent="Geometry/Platform2" index="2" unique_id=1730009195]
+position = Vector2(-204, 96)
+
+[node name="SpringPad" parent="Props" parent_id_path=PackedInt32Array(1442607) index="0" unique_id=1047234168 instance=ExtResource("3_78snn")]
+position = Vector2(534, 1038)
+
+[node name="Box" parent="Props" parent_id_path=PackedInt32Array(1442607) index="1" unique_id=1120624714 instance=ExtResource("5_e4f3d")]
+position = Vector2(272, 698)
+
+[node name="Box2" parent="Props" parent_id_path=PackedInt32Array(1442607) index="2" unique_id=989082987 instance=ExtResource("5_e4f3d")]
+position = Vector2(560, 389)
+
+[node name="Wire" parent="Props" parent_id_path=PackedInt32Array(1442607) index="4" unique_id=601601530 instance=ExtResource("6_1a1hs")]
+position = Vector2(142, 856)
+points = PackedVector2Array(0, 0, -120, 0, -120, -300, -30, -300)
+
+[node name="buttonA" parent="Props" parent_id_path=PackedInt32Array(1442607) index="5" unique_id=278923387 instance=ExtResource("4_1032o")]
+position = Vector2(175, 846)
+
+[node name="buttonB" parent="Props" parent_id_path=PackedInt32Array(1442607) index="6" unique_id=1101845994 instance=ExtResource("4_1032o")]
+position = Vector2(649, 574)
+
+[node name="ElevatorA" parent="Props" parent_id_path=PackedInt32Array(1442607) index="7" unique_id=669589747 instance=ExtResource("7_pou7a")]
+position = Vector2(177, 557)
+travel_distance = Vector2(0, -500)
+
+[node name="ElevatorB" parent="Props" parent_id_path=PackedInt32Array(1442607) index="8" unique_id=1860480144 instance=ExtResource("7_pou7a")]
+position = Vector2(175, 802)
+travel_distance = Vector2(0, 300)
+require_player = false
+
+[node name="SpringPad2" parent="Props" parent_id_path=PackedInt32Array(1442607) index="9" unique_id=1878219331 instance=ExtResource("3_78snn")]
+position = Vector2(390, 721)
+
+[node name="Wire2" parent="Props" parent_id_path=PackedInt32Array(1442607) index="10" unique_id=1921102251 instance=ExtResource("6_1a1hs")]
+position = Vector2(615, 883)
+points = PackedVector2Array(-372, -80, -372, -110, -152, -110, -154, -298, 2, -298)
+
+[connection signal="active" from="Props/buttonA" to="Props/ElevatorA" method="_set_button_active"]
+[connection signal="inactive" from="Props/buttonA" to="Props/ElevatorA" method="_set_button_inactive"]
+[connection signal="active" from="Props/buttonB" to="Props/ElevatorB" method="_set_button_active"]
+[connection signal="inactive" from="Props/buttonB" to="Props/ElevatorB" method="_set_button_inactive"]
+
+[editable path="Geometry/BottomLeftGrate"]
+[editable path="Geometry/TopLeftPlatform"]
+[editable path="Geometry/BottomLeftPlatform"]
+[editable path="Geometry/Platform"]
+[editable path="Geometry/Platform3"]
+[editable path="Geometry/Platform4"]
+[editable path="Geometry/Platform6"]
+[editable path="Geometry/Platform2"]

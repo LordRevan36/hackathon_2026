@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bjrvqb8xcj328"]
+
+[ext_resource type="PackedScene" uid="uid://c33lvwqepyaqf" path="res://levels/LevelDirectory/chunks/pair_l_block/right/right_l_block.tscn" id="1_1857l"]
+[ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="2_hsrwb"]
+[ext_resource type="PackedScene" uid="uid://bbjedi8pjw5yl" path="res://props/platforms/grate.tscn" id="3_3ao53"]
+[ext_resource type="PackedScene" uid="uid://dklvp5hsg0isu" path="res://props/rope/rope.tscn" id="4_bueqt"]
+[ext_resource type="PackedScene" uid="uid://bwv7bf804egto" path="res://props/button/button.tscn" id="5_7vliw"]
+[ext_resource type="PackedScene" uid="uid://burgldlh2lryq" path="res://props/box/box.tscn" id="6_o5mfc"]
+[ext_resource type="PackedScene" uid="uid://fbv68jl8ugae" path="res://props/ladder/Ladder.tscn" id="7_ry7ik"]
+[ext_resource type="PackedScene" uid="uid://bdjudp3s8q13d" path="res://props/spring_pad/spring_pad.tscn" id="8_1lh75"]
+[ext_resource type="PackedScene" uid="uid://batlbia6gpmsr" path="res://props/wires/wire.tscn" id="9_vpv1a"]
+[ext_resource type="PackedScene" uid="uid://bi3k2jdfhxc8d" path="res://props/platforms/swinging_platform.tscn" id="10_hsrwb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1857l"]
+resource_local_to_scene = true
+size = Vector2(144, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hsrwb"]
+resource_local_to_scene = true
+size = Vector2(350, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ao53"]
+resource_local_to_scene = true
+size = Vector2(180, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bueqt"]
+resource_local_to_scene = true
+size = Vector2(256, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ry7ik"]
+resource_local_to_scene = true
+size = Vector2(252, 36)
+
+[node name="RightLBlock02" unique_id=69217074 instance=ExtResource("1_1857l")]
+
+[node name="CollisionShape" parent="Geometry/TopRightPlatform" parent_id_path=PackedInt32Array(1952376278) index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_1857l")
+
+[node name="BottomRightPlatform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="1" unique_id=1810100926]
+position = Vector2(1265, 1062)
+
+[node name="Polygon" parent="Geometry/BottomRightPlatform" index="0" unique_id=1214519473]
+position = Vector2(0, 0)
+
+[node name="CollisionShape" parent="Geometry/BottomRightPlatform" index="1" unique_id=1909510158]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_hsrwb")
+
+[node name="BorderLines" parent="Geometry/BottomRightPlatform" index="2" unique_id=1730009195]
+position = Vector2(0, 0)
+
+[node name="Platform" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="2" unique_id=1156390796 instance=ExtResource("2_hsrwb")]
+position = Vector2(703, 355)
+
+[node name="Polygon" parent="Geometry/Platform" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_3ao53")
+
+[node name="Platform2" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="3" unique_id=912375809 instance=ExtResource("2_hsrwb")]
+position = Vector2(639, 575)
+
+[node name="Polygon" parent="Geometry/Platform2" index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-124, -14, 124, -14, 124, 14, -124, 14)
+
+[node name="CollisionShape" parent="Geometry/Platform2" index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_bueqt")
+
+[node name="Grate" parent="Geometry" parent_id_path=PackedInt32Array(1862465642) index="4" unique_id=1637726119 instance=ExtResource("3_3ao53")]
+position = Vector2(1290, 827)
+
+[node name="Rope" parent="Props" parent_id_path=PackedInt32Array(1442607) index="0" unique_id=202863634 instance=ExtResource("4_bueqt")]
+position = Vector2(920, -2)
+deploy_speed = 1.0
+height = 300.0
+
+[node name="button" parent="Props" parent_id_path=PackedInt32Array(1442607) index="1" unique_id=278923387 instance=ExtResource("5_7vliw")]
+position = Vector2(553, 557)
+
+[node name="Box" parent="Props" parent_id_path=PackedInt32Array(1442607) index="2" unique_id=989082987 instance=ExtResource("6_o5mfc")]
+position = Vector2(640, 312)
+
+[node name="ladder" parent="Props" parent_id_path=PackedInt32Array(1442607) index="3" unique_id=1009803214 instance=ExtResource("7_ry7ik")]
+position = Vector2(1353, 894)
+height = 300.0
+
+[node name="SpringPad" parent="Props" parent_id_path=PackedInt32Array(1442607) index="4" unique_id=1878219331 instance=ExtResource("8_1lh75")]
+position = Vector2(1210, 801)
+
+[node name="Wire" parent="Props" parent_id_path=PackedInt32Array(1442607) index="5" unique_id=601601530 instance=ExtResource("9_vpv1a")]
+position = Vector2(566, 668)
+points = PackedVector2Array(19, -97, 301, -97, 300, -665, 355, -665)
+
+[node name="SwingingPlatform" parent="Props" parent_id_path=PackedInt32Array(1442607) index="6" unique_id=641372415 instance=ExtResource("10_hsrwb")]
+position = Vector2(1028, 314)
+swing_speed = 2.5
+
+[node name="Polygon" parent="Props/SwingingPlatform/Platform" parent_id_path=PackedInt32Array(641372415, 1810100926) index="0" unique_id=1214519473]
+polygon = PackedVector2Array(-122, -14, 122, -14, 122, 14, -122, 14)
+
+[node name="CollisionShape" parent="Props/SwingingPlatform/Platform" parent_id_path=PackedInt32Array(641372415, 1810100926) index="1" unique_id=1909510158]
+shape = SubResource("RectangleShape2D_ry7ik")
+
+[node name="LeftLine" parent="Props/SwingingPlatform" index="1" unique_id=701014776]
+points = PackedVector2Array(0, 0, -126, 234)
+
+[node name="RightLine" parent="Props/SwingingPlatform" index="2" unique_id=1359893425]
+points = PackedVector2Array(0, 0, 126, 234)
+
+[connection signal="active" from="Props/button" to="Props/Rope" method="deploy_rope"]
+[connection signal="inactive" from="Props/button" to="Props/Rope" method="retract_rope"]
+
+[editable path="Geometry/TopRightPlatform"]
+[editable path="Geometry/BottomRightPlatform"]
+[editable path="Geometry/Platform"]
+[editable path="Geometry/Platform2"]
+[editable path="Props/SwingingPlatform"]
+[editable path="Props/SwingingPlatform/Platform"]

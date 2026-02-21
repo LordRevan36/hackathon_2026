@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://burgldlh2lryq" path="res://props/box/box.tscn" id="5_m8dki"]
 [ext_resource type="PackedScene" uid="uid://fbv68jl8ugae" path="res://props/ladder/Ladder.tscn" id="6_o7n6p"]
 [ext_resource type="PackedScene" uid="uid://bdjudp3s8q13d" path="res://props/spring_pad/spring_pad.tscn" id="7_qe610"]
+[ext_resource type="PackedScene" uid="uid://batlbia6gpmsr" path="res://props/wires/wire.tscn" id="9_rsxb2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vympg"]
 resource_local_to_scene = true
@@ -107,6 +108,10 @@ height = 450.0
 
 [node name="SpringPad" parent="Props" parent_id_path=PackedInt32Array(1442607) index="4" unique_id=1878219331 instance=ExtResource("7_qe610")]
 position = Vector2(963, 593)
+
+[node name="Wire" parent="Props" parent_id_path=PackedInt32Array(1442607) index="5" unique_id=601601530 instance=ExtResource("9_rsxb2")]
+position = Vector2(566, 668)
+points = PackedVector2Array(0, 0, 0, -230, 300, -230, 300, -665, 355, -665)
 
 [connection signal="active" from="Props/button" to="Props/Rope" method="deploy_rope"]
 
