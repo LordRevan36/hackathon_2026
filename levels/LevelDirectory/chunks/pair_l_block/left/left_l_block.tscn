@@ -5,16 +5,17 @@
 [ext_resource type="Script" uid="uid://csbpshquadh5o" path="res://props/platforms/platforms.gd" id="3_3xhgq"]
 [ext_resource type="PackedScene" uid="uid://cw1gth0dtunj4" path="res://props/platforms/platform.tscn" id="3_tdg7h"]
 [ext_resource type="Script" uid="uid://cq0xonqbx1cf3" path="res://levels/LevelDirectory/chunks/base/editor_guide.gd" id="4_upx8l"]
+[ext_resource type="PackedScene" uid="uid://fbv68jl8ugae" path="res://props/ladder/Ladder.tscn" id="6_mg5en"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xhgq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiqb2"]
 resource_local_to_scene = true
 size = Vector2(300, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mg5en"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n0m4o"]
 resource_local_to_scene = true
 size = Vector2(144, 36)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiqb2"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ietnt"]
 resource_local_to_scene = true
 size = Vector2(570, 36)
 
@@ -39,7 +40,7 @@ position = Vector2(720, 1062)
 polygon = PackedVector2Array(-150, -18, 150, -18, 150, 18, -150, 18)
 
 [node name="CollisionShape" parent="Geometry/BottomLeftGrate" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_3xhgq")
+shape = SubResource("RectangleShape2D_iiqb2")
 
 [node name="TopLeftPlatform" parent="Geometry" index="1" unique_id=1952376278 instance=ExtResource("3_tdg7h")]
 position = Vector2(648, 110)
@@ -53,7 +54,7 @@ polygon = PackedVector2Array(-72, -18, 72, -18, 72, 18, -72, 18)
 
 [node name="CollisionShape" parent="Geometry/TopLeftPlatform" index="1" unique_id=1909510158]
 position = Vector2(0, 82)
-shape = SubResource("RectangleShape2D_mg5en")
+shape = SubResource("RectangleShape2D_n0m4o")
 
 [node name="BorderLines" parent="Geometry/TopLeftPlatform" index="2" unique_id=1730009195]
 position = Vector2(0, 82)
@@ -66,7 +67,11 @@ enableSnap = false
 polygon = PackedVector2Array(-281, -14, 281, -14, 281, 14, -281, 14)
 
 [node name="CollisionShape" parent="Geometry/BottomLeftPlatform" index="1" unique_id=1909510158]
-shape = SubResource("RectangleShape2D_iiqb2")
+shape = SubResource("RectangleShape2D_ietnt")
+
+[node name="ladder" parent="Props" parent_id_path=PackedInt32Array(1442607) index="0" unique_id=1009803214 instance=ExtResource("6_mg5en")]
+position = Vector2(720, 69)
+height = 210.0
 
 [editable path="Geometry/BottomLeftGrate"]
 [editable path="Geometry/TopLeftPlatform"]

@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 		_apply_gravity(delta)
 		_handle_movement(delta)
 		_check_ladder_climb()
-		_handle_jump()
+		_handle_jump(false)
 	else:
 		_handle_climb()
 	
@@ -83,8 +83,8 @@ func _handle_spring_pad(area: Area2D) -> void:
 	#velocity.y = -JUMP_CONSTANT
 	velocity = inherited_momentum
 
-func _handle_jump() -> void:
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+func _handle_jump(override : bool) -> void:
+	if (Input.is_action_just_pressed("jump") and is_on_floor()) or override:
 		velocity.y = -JUMP_CONSTANT
 		var collision = get_last_slide_collision()
 		if collision:
@@ -154,7 +154,7 @@ func _handle_climb() -> void:
 		return
 	if Input.is_action_just_pressed("jump"):
 		state = State.JUMP
-		_handle_jump()
+		_handle_jump(true)
 		return
 	if Input.is_action_pressed("up"):
 		velocity.y = -CLIMB_CONSTANT

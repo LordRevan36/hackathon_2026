@@ -70,8 +70,8 @@ polygon = PackedVector2Array(-281, -14, 281, -14, 281, 14, -281, 14)
 shape = SubResource("RectangleShape2D_cu4r4")
 
 [node name="ladder" parent="Props" parent_id_path=PackedInt32Array(1442607) index="0" unique_id=1009803214 instance=ExtResource("6_ptxqx")]
-position = Vector2(720, 87)
-height = 174.0
+position = Vector2(720, 69)
+height = 210.0
 
 [editable path="Geometry/BottomLeftGrate"]
 [editable path="Geometry/TopLeftPlatform"]
