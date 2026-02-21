@@ -21,6 +21,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	_new_scroll_function(delta)
+
+func _new_scroll_function(delta: float) -> void:
+	position.y = player.position.y
+
+func _old_scroll_function(delta: float) -> void:
 	#slow constant scroll up
 	if not pauseScroll:
 		position.y = position.y - delta * SCROLL_CONSTANT
