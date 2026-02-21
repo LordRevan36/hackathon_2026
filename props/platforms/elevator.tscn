@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnxccdjidlvxv"]
 
 [ext_resource type="Script" uid="uid://gqy4hyc75103" path="res://props/platforms/elevator.gd" id="1_pb310"]
-[ext_resource type="Texture2D" uid="uid://bq6yx85wl1xmw" path="res://assets/placeholderTexture.png" id="2_icuw5"]
+[ext_resource type="Texture2D" uid="uid://oc46s8b64kqc" path="res://assets/winter_platform_small.png" id="2_icuw5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jdaig"]
 resource_local_to_scene = true

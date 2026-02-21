@@ -151,7 +151,6 @@ shape = SubResource("RectangleShape2D_0ab11")
 
 [node name="Platform7" parent="Props/Platforms" unique_id=850538308 instance=ExtResource("3_80iyk")]
 position = Vector2(256, -268)
-useBorders = false
 
 [node name="Polygon" parent="Props/Platforms/Platform7" index="0" unique_id=1214519473]
 polygon = PackedVector2Array(-86, -14, 86, -14, 86, 14, -86, 14)
