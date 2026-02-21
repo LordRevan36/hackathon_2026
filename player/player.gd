@@ -40,8 +40,9 @@ func _physics_process(delta: float) -> void:
 		return
 	elif canClimb and Input.is_action_just_pressed("jump"):
 		state = State.CLIMB
+		print(state)
 		return
-	
+
 	_apply_gravity(delta)
 	
 	_handle_movement(delta)
@@ -109,20 +110,23 @@ func _handle_boxes() -> void:
 				collider.apply_central_impulse(-hit_normal * PUSH_FORCE)
 
 func _update_states() -> void:
-	var previous_state = state
-	if previous_state == State.DEAD:
-		return
-	if not is_on_floor():
-		if velocity.y < 0:
-			state = State.JUMP
-		else:
-			state = State.FALL
-	elif velocity.x != 0:
-		state = State.RUN
+	if state == State.CLIMB:
+		pass
 	else:
-		state = State.IDLE
-	if state != previous_state:
-		_update_animations()
+		var previous_state = state
+		if previous_state == State.DEAD:
+			return
+		if not is_on_floor():
+			if velocity.y < 0:
+				state = State.JUMP
+			else:
+				state = State.FALL
+		elif velocity.x != 0:
+			state = State.RUN
+		else:
+			state = State.IDLE
+		if state != previous_state:
+			_update_animations()
 
 func _update_animations() -> void:
 	match state:
